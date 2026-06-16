@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Tobias — Healer, Nurse, Builder</title>
+  <meta name="description" content="Tobias Jeronimo Jenni — Swiss nurse, holistic medicine practitioner, plant medicine ceremonialist, permaculture builder and Fintech & AI.">
+  <meta property="og:title" content="Tobias — Healer, Nurse, Builder">
+  <meta property="og:description" content="20 years in medicine. A decade in holistic health. Building Magic Land on Koh Phangan.">
+  <meta property="og:image" content="https://tjadvaita.tech/images/tobias-portrait-v2.jpg">
+  <meta property="og:url" content="https://tjadvaita.tech/tobias.html">
+  <meta property="og:type" content="profile">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #000; --near-black: #080808; --dark: #0f0f0f;
+      --surface: #161616; --surface-2: #1e1e1e;
+      --gold: #c9a96e; --gold-lt: #e8d5b0;
+      --gold-border: rgba(201,169,110,0.22);
+      --white: #fff; --muted: rgba(255,255,255,0.68);
+      --r: 16px; --r-sm: 8px;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--black); color:var(--white); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+    img { display:block; max-width:100%; }
+    a { text-decoration:none; color:inherit; }
+    .wrap { max-width:1100px; margin:0 auto; padding:0 clamp(24px,6vw,80px); }
+
+    /* NAV */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      height:60px; padding:0 clamp(20px,5vw,56px);
+      display:flex; align-items:center; justify-content:space-between;
+      background:rgba(0,0,0,0.85);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--gold-border);
+    }
+    .nav-logo { font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:400; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+    .nav-back { font-size:.65rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); transition:color .2s; }
+    .nav-back:hover { color:var(--gold-lt); }
+
+    /* HERO */
+    .hero {
+      position:relative; height:70vh; min-height:500px;
+      display:flex; align-items:flex-end; overflow:hidden;
+    }
+    .hero-bg {
+      position:absolute; inset:0;
+      background:url('images/tobias-portrait-v2.jpg') 50% 25% / cover no-repeat;
+      animation:heroZoom 20s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom { from{transform:scale(1)} to{transform:scale(1.05)} }
+    .hero-overlay {
+      position:absolute; inset:0;
+      background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, transparent 100%),
+                  linear-gradient(to top, rgba(0,0,0,0.97) 0%, transparent 60%);
+    }
+    .hero-content { position:relative; z-index:2; padding:0 clamp(24px,7vw,96px) 64px; max-width:700px; }
+    .hero-eyebrow {
+      display:flex; align-items:center; gap:14px; margin-bottom:18px;
+      font-size:.6rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--gold);
+    }
+    .hero-eyebrow span { display:block; width:36px; height:1px; background:var(--gold); opacity:.6; }
+    .hero h1 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.8rem,7vw,5.5rem);
+      font-weight:300; line-height:1.06;
+      color:var(--white); margin-bottom:16px;
+      text-shadow:0 2px 20px rgba(0,0,0,0.5);
+    }
+    .hero h1 em { font-style:italic; color:var(--gold-lt); }
+    .hero-roles {
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+    .role-tag {
+      font-size:.58rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+      color:var(--gold); border:1px solid var(--gold-border);
+      padding:6px 14px; border-radius:2px;
+      background:rgba(201,169,110,0.08);
+    }
+
+    /* SECTIONS */
+    .section { padding:clamp(64px,8vw,120px) 0; }
+    .section-alt { background:var(--near-black); }
+    .section-dark { background:var(--dark); }
+    .label { font-size:.6rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; display:block; }
+    .section-h2 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(1.8rem,3.5vw,3rem);
+      font-weight:300; line-height:1.1; color:var(--white); margin-bottom:20px;
+    }
+    .section-h2 em { font-style:italic; color:var(--gold-lt); }
+    .gold-line { display:block; width:40px; height:1px; background:var(--gold); opacity:.55; margin-bottom:32px; }
+    p { font-size:.97rem; font-weight:300; line-height:1.9; color:var(--muted); margin-bottom:18px; }
+    p strong { color:var(--gold-lt); font-weight:500; }
+
+    /* HD GRID */
+    .hd-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
+    .hd-card {
+      background:var(--surface); border:1px solid var(--gold-border);
+      border-top:2px solid var(--gold);
+      border-radius:var(--r-sm); padding:28px 28px;
+      transition:background .3s;
+    }
+    .hd-card:hover { background:var(--surface-2); }
+    .hd-label { font-size:.58rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+    .hd-value {
+      font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:400;
+      color:var(--white); margin-bottom:8px; line-height:1.2;
+    }
+    .hd-desc { font-size:.82rem; font-weight:300; line-height:1.7; color:var(--muted); }
+
+    /* CHANNELS */
+    .channels { display:flex; flex-direction:column; gap:3px; }
+    .channel-row {
+      background:var(--surface); border:1px solid var(--gold-border);
+      border-radius:var(--r-sm); padding:22px 28px;
+      display:grid; grid-template-columns:120px 1fr;
+      gap:20px; align-items:start;
+      transition:background .3s;
+    }
+    .channel-row:hover { background:var(--surface-2); }
+    .channel-num { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; color:var(--gold); }
+    .channel-name { font-size:.9rem; font-weight:500; color:var(--white); margin-bottom:6px; }
+    .channel-desc { font-size:.82rem; font-weight:300; line-height:1.7; color:var(--muted); }
+
+    /* QUOTE */
+    .pull-quote {
+      border-left:2px solid var(--gold); padding-left:24px;
+      margin:32px 0;
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(1.2rem,2.5vw,1.6rem);
+      font-style:italic; font-weight:300;
+      line-height:1.5; color:var(--gold-lt);
+    }
+
+    /* FOOTER */
+    .profile-footer {
+      padding:48px 0; background:var(--near-black);
+      border-top:1px solid var(--gold-border);
+      text-align:center;
+    }
+    .profile-footer a {
+      font-size:.68rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+      color:var(--black); background:var(--gold);
+      padding:14px 32px; border-radius:2px;
+      display:inline-block; transition:background .2s;
+    }
+    .profile-footer a:hover { background:var(--gold-lt); }
+    .profile-footer p { font-size:.78rem; color:rgba(255,255,255,.35); margin-top:20px; margin-bottom:0; }
+
+    @media(max-width:768px) {
+      .hd-grid { grid-template-columns:1fr; }
+      .channel-row { grid-template-columns:1fr; gap:8px; }
+      .hero { height:60vh; min-height:420px; }
+      .hero h1 { font-size:2.4rem; }
+      .hero-content { padding:0 24px 48px; }
+      .section { padding:52px 0; }
+      p { font-size:.92rem; }
+      .section-h2 { font-size:1.8rem; }
+      h3 { font-size:1.4rem !important; }
+      .pull-quote { font-size:1.1rem; }
+    }
+    @media(max-width:480px) {
+      .hero h1 { font-size:2rem; }
+      .hero-roles { gap:6px; }
+      .role-tag { font-size:.54rem; padding:5px 10px; }
+    }
+  </style>
+  <script src="js/translations_v6.js"></script>
+  <script src="js/i18nv2.js" defer></script>
+</head>
+<body>
+  <nav>
+    <span class="nav-logo">TJ Advaita</span>
+    <div style="display:flex;align-items:center;gap:16px">
+      <div class="lang-switch" id="lang-switch" style="display:flex;gap:2px">
+        <button data-lang="en" class="active" style="background:none;border:none;cursor:pointer;font-size:.55rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28);padding:3px 6px;border-radius:2px;transition:all .2s">EN</button>
+        <button data-lang="de" style="background:none;border:none;cursor:pointer;font-size:.55rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28);padding:3px 6px;border-radius:2px;transition:all .2s">DE</button>
+        <button data-lang="ru" style="background:none;border:none;cursor:pointer;font-size:.55rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28);padding:3px 6px;border-radius:2px;transition:all .2s">RU</button>
+      </div>
+      <a href="/" class="nav-back" data-i18n="back_home">← Back to Home</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span></span>Tobias Jeronimo Jenni</div>
+      <h1 data-i18n-html="tobias_hero">Healer.<br><em>Builder.</em><br>Visionary.</h1>
+      <div class="hero-roles">
+        <span class="role-tag" data-i18n="tobias_role1">Registered Nurse</span>
+        <span class="role-tag" data-i18n="tobias_role2">Holistic Medicine</span>
+        <span class="role-tag" data-i18n="tobias_role3">Longevity</span>
+        <span class="role-tag" data-i18n="tobias_role4">Plant Medicine</span>
+        <span class="role-tag" data-i18n="tobias_role5">Permaculture</span>
+        <span class="role-tag" data-i18n="tobias_role6">Human Design</span>
+        <span class="role-tag" data-i18n="tobias_role7">Fintech & AI</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIO -->
+  <section class="section section-alt">
+    <div class="wrap">
+      <span class="label" data-i18n="background">Background</span>
+      <h2 class="section-h2" data-i18n-html="tobias_bio_h2">Medicine, land,<br><em>and unconditional love.</em></h2>
+      <span class="gold-line"></span>
+      <p data-i18n-html="tobias_bio_p1">Tobias was born in Switzerland in the early nineties, and medicine was his first language. He trained as a nurse and spent years working across Swiss hospitals — emergency wards, intensive care, the kind of clinical environments where you learn quickly what the body can withstand and what it cannot. He was good at it. But the longer he worked inside the Western medical system, the harder it became to ignore what he was seeing: a machine built not around health, but around profit. Patients managed, not healed. Symptoms treated, causes ignored.</p>
+      <p data-i18n-html="tobias_bio_p2">That recognition became a turning point. He left the clinical world not out of disillusionment, but out of conviction. If medicine was going to mean anything, it had to go deeper.</p>
+      <p data-i18n-html="tobias_bio_p3">His first step into the holistic space came through <strong>medical cannabis</strong>. He co-founded one of Switzerland's first medical cannabis associations and later a production company — working directly with patients suffering from autoimmune diseases, cancer, chronic conditions that conventional medicine had run out of answers for. The results were undeniable. This wasn't fringe work. It was medicine doing what medicine is supposed to do.</p>
+      <p data-i18n-html="tobias_bio_p4">From there, Tobias moved deeper into longevity, ancestral health, plant medicine ceremony and the energetic dimensions of the body that clinical training never touched. He has spent over a decade in these fields — not as a tourist, but as a builder. Today he is developing a health and movement centre on Koh Phangan called <strong>258</strong>, a space dedicated to body, movement and spirit, with a music studio and creative hub as part of its vision. He is also building <strong>Magic Land</strong> — a co-village and retreat sanctuary on the same island — alongside Julia and a small core team.</p>
+      <p data-i18n-html="tobias_bio_p5">In parallel, for the past five years he has operated his own <strong>Fintech platform</strong>, giving individuals and businesses worldwide access to banking, crypto and payment infrastructure across 115+ countries. The same systems thinking that runs through his medical and land work runs through this: build structures that hold, so people inside them can be free.</p>
+      <blockquote class="pull-quote" data-i18n-html="tobias_quote">"Love, in its most unconditional form, is the actual substance of everything I do."</blockquote>
+      <p data-i18n-html="tobias_bio_p6">In Human Design, Tobias is a <strong>Generator</strong> — a being of pure life force, here not to chase but to respond. When something genuinely lights him up, the energy is unmistakable and self-sustaining. His Incarnation Cross is the <strong>Vessel of Love</strong> — self-love, love of humanity, love of the body, universal love. This is not a romantic designation. It means that love is the actual engine of everything he builds: the health work, the land, the ceremonies, the Fintech. A refusal to let people go without what they need.</p>
+      <p data-i18n-html="tobias_bio_p7">He carries the name <strong>Jeronimo</strong> — after the Apache warrior who never surrendered. It suits him. He lives between <strong>Koh Phangan</strong> and <strong>Nepal</strong>, and builds as if both matter equally.</p>
+    </div>
+  </section>
+
+  <!-- HUMAN DESIGN -->
+  <section class="section section-dark">
+    <div class="wrap">
+      <span class="label" data-i18n="hd_label">Human Design</span>
+      <h2 class="section-h2" data-i18n-html="tobias_hd_h2">The blueprint<br><em>beneath the man.</em></h2>
+      <span class="gold-line"></span>
+      <p data-i18n-html="tobias_hd_intro">Human Design is a synthesis of the I Ching, Kabbalah, Hindu Chakra system, and quantum physics — a precise map of how energy moves through a person, how they make decisions, and what they are here to contribute. Here is Tobias's chart in full.</p>
+
+      <div class="hd-grid" style="margin-top:40px;">
+        <div class="hd-card">
+          <div class="hd-label" data-i18n="type">Type</div>
+          <div class="hd-value" data-i18n="hd_type_value_tobias">Generator</div>
+          <p class="hd-desc" data-i18n-html="tobias_hd_type">Carries the most powerful motor in Human Design — the Sacral Center. A pure life force, designed to respond to what life brings rather than initiate. When aligned, Tobias radiates a magnetic, sustainable energy that others are drawn to follow.</p>
+        </div>
+        <div class="hd-card">
+          <div class="hd-label" data-i18n="strategy">Strategy</div>
+          <div class="hd-value" data-i18n="hd_strategy_value">Wait to Respond</div>
+          <p class="hd-desc" data-i18n-html="tobias_hd_strategy">Not passive — acutely present. Tobias's power activates when something in his environment triggers a genuine gut response. This is when his Sacral energy is available and correct. Forcing or initiating leads to frustration and wasted force.</p>
+        </div>
+        <div class="hd-card">
+          <div class="hd-label" data-i18n="authority">Inner Authority</div>
+          <div class="hd-value" data-i18n="hd_auth_value_tobias">Solar Plexus — Emotional</div>
+          <p class="hd-desc" data-i18n-html="tobias_hd_auth">There is no truth in the now. Tobias must ride his emotional wave — from highs to lows — before clarity arrives. His motto: sleep on it. Major decisions ripen over days or weeks. This creates depth of discernment rare in the world.</p>
+        </div>
+        <div class="hd-card">
+          <div class="hd-label" data-i18n="profile">Profile</div>
+          <div class="hd-value" data-i18n="hd_profile_value_tobias">2/4 — Hermit / Opportunist</div>
+          <p class="hd-desc" data-i18n-html="tobias_hd_profile">Naturally gifted in ways he can't always explain. He needs solitude to nourish his talents, then is called out by his network to share them. Opportunities come through relationships and community — not strangers. Built to make lasting contributions through recognized gifts.</p>
+        </div>
+        <div class="hd-card">
+          <div class="hd-label" data-i18n="definition">Definition</div>
+          <div class="hd-value" data-i18n="hd_def_value_tobias">Single Definition</div>
+          <p class="hd-desc" data-i18n-html="tobias_hd_def">All defined centers permanently connected — giving Tobias an inherent wholeness and self-containment. He doesn't need others to complete him. He integrates information rapidly and operates with rare consistency and solidity.</p>
+        </div>
+        <div class="hd-card">
+          <div class="hd-label" data-i18n="incarnation_cross">Incarnation Cross</div>
+          <div class="hd-value" data-i18n="hd_cross_value_tobias">Vessel of Love</div>
+          <p class="hd-desc" data-i18n-html="tobias_hd_cross">Gates 10/15 | 46/25 — Self-love, Love of Humanity, Love of the Body, Universal Love. Tobias is here to be a living vessel for love in its many forms. Not romantic love — love as a way of moving through the world. His very presence shifts the field.</p>
+        </div>
+      </div>
+
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:var(--white); margin:56px 0 28px;" data-i18n="defined_channels">Defined Channels</h3>
+      <div class="channels">
+        <div class="channel-row">
+          <div class="channel-num">10–57</div>
+          <div>
+            <div class="channel-name" data-i18n="tobias_ch_name1">Channel of Perfected Form — "A Design of Survival"</div>
+            <p class="channel-desc" data-i18n-html="tobias_ch1">G Center ↔ Splenic Center. The integration channel — connecting authentic selfhood with intuitive, in-the-moment survival intelligence. Tobias has a deeply embodied sense of what is safe, what is right, and what serves life. His intuition is not a guess — it is a knowing.</p>
+          </div>
+        </div>
+        <div class="channel-row">
+          <div class="channel-num">51–25</div>
+          <div>
+            <div class="channel-name" data-i18n="tobias_ch_name2">Channel of Initiation — "A Design of Needing to be First"</div>
+            <p class="channel-desc" data-i18n-html="tobias_ch2">Heart Center ↔ G Center. The individual initiation channel — Tobias has a will to shock, to disrupt, to go where others haven't gone. He doesn't follow existing paths; he cuts new ones. This gives him the courage to build something like Magic Land when the world says it can't be done.</p>
+          </div>
+        </div>
+        <div class="channel-row">
+          <div class="channel-num">5–15</div>
+          <div>
+            <div class="channel-name" data-i18n="tobias_ch_name3">Channel of Rhythm — "A Design of Being in the Flow"</div>
+            <p class="channel-desc" data-i18n-html="tobias_ch3">Sacral Center ↔ G Center. Tobias embodies universal rhythm — the flow of natural cycles, seasons, patterns. He is deeply attuned to the rhythms of land, body, and community. This is the channel of the farmer, the ceremonialist, the one who knows when to plant and when to rest.</p>
+          </div>
+        </div>
+        <div class="channel-row">
+          <div class="channel-num">59–6</div>
+          <div>
+            <div class="channel-name" data-i18n="tobias_ch_name4">Channel of Mating — "A Design Focused on Reproduction"</div>
+            <p class="channel-desc" data-i18n-html="tobias_ch4">Sacral Center ↔ Solar Plexus Center. The tribal bonding channel — Tobias has a natural force for creating intimacy, dissolving barriers between people, and generating new life in many forms. Community, projects, families — he has the energy to bring them into being and sustain them.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:var(--white); margin:56px 0 28px;" data-i18n="open_centers">Open Centers — Where Growth Happens</h3>
+      <div class="hd-grid">
+        <div class="hd-card">
+          <div class="hd-label" data-i18n="open_head_label">Open Head</div>
+          <div class="hd-value" data-i18n="open_head_value">Inspired by Ideas</div>
+          <p class="hd-desc" data-i18n-html="tobias_open_head">Receives mental pressure and inspiration from others. The open Head is a gift — a capacity to be moved by many different forms of wisdom without being locked into one mental framework.</p>
+        </div>
+        <div class="hd-card">
+          <div class="hd-label" data-i18n="open_ajna_label">Open Ajna</div>
+          <div class="hd-value" data-i18n="open_ajna_value">Fluid Intelligence</div>
+          <p class="hd-desc" data-i18n-html="tobias_open_ajna">Not fixed in certainty. Tobias can hold many perspectives simultaneously — a rare quality that makes him a nuanced teacher and healer rather than a dogmatist.</p>
+        </div>
+        <div class="hd-card">
+          <div class="hd-label" data-i18n="open_throat_label">Open Throat</div>
+          <div class="hd-value" data-i18n="open_throat_value">Voice When Called</div>
+          <p class="hd-desc" data-i18n-html="tobias_open_throat">Speaks when recognized and invited — not from need for attention. His words carry more weight precisely because they are not constant. When Tobias speaks, something has been earned.</p>
+        </div>
+        <div class="hd-card">
+          <div class="hd-label" data-i18n="open_root_label">Open Root</div>
+          <div class="hd-value" data-i18n="open_root_value">Released from Rush</div>
+          <p class="hd-desc" data-i18n-html="tobias_open_root">Sensitive to pressure and deadlines. His medicine is learning to act without being driven by urgency — to move from presence rather than pressure. When aligned, this brings extraordinary stillness to his work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="profile-footer">
+    <a href="/" data-i18n="tobias_return">← Return to TJ Advaita</a>
+    <p data-i18n="tobias_footer">Tobias Jeronimo Jenni · Koh Phangan & Nepal</p>
+  </div>
+</body>
+</html>

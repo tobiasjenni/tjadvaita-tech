@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bounty Resort — Koh Phangan</title>
+<meta name="description" content="Bounty Resort — A secluded paradise on Haad Dao Deuk, Koh Phangan. Private beach, sunset views, island bungalows.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ocean: #0d554a; --ocean-deep: #083832; --sand: #f5efe0; --sand-light: #faf7f0;
+    --gold: #c8963e; --gold-bright: #d4a853; --sunset: #e8874b;
+    --text: #1a1a1a; --text-light: #5a5a5a; --white: #ffffff;
+    --nav-height: 70px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--sand-light); color: var(--text);
+    line-height: 1.7; overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Nav ─────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    height: var(--nav-height);
+    padding: 0 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  nav.scrolled {
+    background: rgba(8, 56, 50, 0.94);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.12);
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700; color: var(--white);
+    letter-spacing: 0.5px; text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+  .nav-links a {
+    color: rgba(255,255,255,0.88); text-decoration: none;
+    font-size: 0.88rem; font-weight: 500; letter-spacing: 0.3px;
+    transition: color 0.25s; position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px;
+    background: var(--gold-bright); transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .btn-book {
+    background: var(--gold); color: var(--white);
+    padding: 0.55rem 1.5rem; border-radius: 50px;
+    font-weight: 600; font-size: 0.82rem; text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none; cursor: pointer; white-space: nowrap;
+  }
+  .btn-book:hover { background: var(--gold-bright); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(200,150,62,0.35); }
+  .btn-book:active { transform: translateY(0); }
+
+  /* ── Hero ────────────────────────── */
+  .hero {
+    height: 100vh; min-height: 600px; max-height: 900px;
+    position: relative; display: flex; align-items: center; justify-content: center; text-align: center;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('images/hero.jpg') center/cover no-repeat;
+    will-change: transform;
+  }
+  .hero-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(8,56,50,0.55) 0%, rgba(8,56,50,0.25) 55%, var(--sand-light) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2; max-width: 780px; padding: 2rem;
+    animation: heroFadeIn 1s ease-out;
+  }
+  @keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-tag {
+    font-size: 0.75rem; text-transform: uppercase;
+    letter-spacing: 5px; color: var(--gold-bright);
+    margin-bottom: 1.2rem; font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 6.5vw, 4.8rem);
+    font-weight: 700; color: var(--white);
+    line-height: 1.08; margin-bottom: 1.3rem;
+  }
+  .hero-sub {
+    font-size: 1.1rem; color: rgba(255,255,255,0.82);
+    max-width: 520px; margin: 0 auto 2.2rem; font-weight: 300; line-height: 1.6;
+  }
+  .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.45);
+    color: var(--white); padding: 0.65rem 1.8rem;
+    border-radius: 50px; text-decoration: none;
+    font-weight: 500; font-size: 0.88rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(4px);
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: var(--white); transform: translateY(-2px); }
+
+  .scroll-indicator {
+    position: absolute; bottom: 2.2rem; left: 50%; transform: translateX(-50%);
+    z-index: 3; animation: float 2.2s ease-in-out infinite; cursor: pointer;
+  }
+  .scroll-indicator span {
+    display: block; width: 22px; height: 36px;
+    border: 2px solid rgba(255,255,255,0.5); border-radius: 11px; position: relative;
+  }
+  .scroll-indicator span::after {
+    content: ''; position: absolute; top: 7px; left: 50%; transform: translateX(-50%);
+    width: 3px; height: 7px; background: var(--white); border-radius: 2px;
+    animation: scrollDot 2.2s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+  @keyframes scrollDot { 0% { opacity: 1; top: 7px; } 80% { opacity: 0; top: 22px; } 100% { opacity: 0; top: 22px; } }
+
+  /* ── Sections ────────────────────── */
+  section { padding: 5.5rem 2rem; }
+  .section-tag {
+    text-transform: uppercase; letter-spacing: 3.5px;
+    font-size: 0.72rem; color: var(--ocean); font-weight: 600; margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 3.8vw, 2.8rem);
+    color: var(--ocean-deep); margin-bottom: 0.8rem; line-height: 1.2;
+  }
+  .section-subtitle { color: var(--text-light); max-width: 580px; font-size: 1.02rem; margin-bottom: 3rem; line-height: 1.6; }
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  /* ── Scroll Reveal ────────────────── */
+  .reveal {
+    opacity: 1; transform: none;
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  /* ── Intro ────────────────────────── */
+  .intro-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .intro-image-wrap {
+    position: relative; border-radius: 18px; overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+  }
+  .intro-image {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
+    transition: transform 0.6s ease;
+  }
+  .intro-image-wrap:hover .intro-image { transform: scale(1.04); }
+  .intro-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; color: var(--ocean); margin-bottom: 0.8rem;
+  }
+  .intro-text p { color: var(--text-light); margin-bottom: 1rem; font-size: 0.98rem; }
+
+  /* ── Rooms ────────────────────────── */
+  .rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.8rem;
+  }
+  .room-card {
+    background: var(--white); border-radius: 18px; overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05); cursor: pointer; position: relative;
+  }
+  .room-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.1);
+  }
+  .room-img-wrap { overflow: hidden; position: relative; }
+  .room-img {
+    width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block;
+    transition: transform 0.6s ease;
+  }
+  .room-card:hover .room-img { transform: scale(1.06); }
+  .room-img-placeholder {
+    width: 100%; aspect-ratio: 16/10;
+    background: linear-gradient(135deg, var(--ocean), #1a7a6a);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-size: 3rem; gap: 0.3rem; color: rgba(255,255,255,0.9);
+  }
+  .room-img-placeholder .ph-label {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 2px;
+    text-transform: uppercase; color: rgba(255,255,255,0.7);
+    font-family: 'Inter', sans-serif;
+  }
+  .room-body { padding: 1.4rem 1.5rem 1.5rem; }
+  .room-body h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; color: var(--ocean-deep); margin-bottom: 0.5rem;
+  }
+  .room-meta {
+    display: flex; gap: 0.9rem; font-size: 0.8rem;
+    color: var(--text-light); margin-bottom: 0.8rem; flex-wrap: wrap;
+  }
+  .room-meta span { display: flex; align-items: center; gap: 0.3rem; }
+  .room-price { font-weight: 700; color: var(--ocean); font-size: 1.05rem; }
+  .room-price small { font-weight: 400; font-size: 0.78rem; color: var(--text-light); }
+
+  /* ── Amenities ────────────────────── */
+  .amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .amenity-card {
+    background: var(--white); border-radius: 16px; padding: 1.8rem;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0,0,0,0.04); position: relative; overflow: hidden;
+  }
+  .amenity-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+    background: var(--gold); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .amenity-card:hover { border-color: rgba(200,150,62,0.2); box-shadow: 0 12px 40px rgba(0,0,0,0.06); transform: translateY(-4px); }
+  .amenity-card:hover::before { transform: scaleX(1); }
+  .amenity-icon { font-size: 2.2rem; margin-bottom: 0.8rem; display: inline-block; transition: transform 0.3s ease; }
+  .amenity-card:hover .amenity-icon { transform: scale(1.15); }
+  .amenity-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; color: var(--ocean-deep); margin-bottom: 0.4rem;
+  }
+  .amenity-card p { color: var(--text-light); font-size: 0.88rem; line-height: 1.6; }
+
+  /* ── Testimonial ──────────────────── */
+  .testimonial {
+    background: linear-gradient(160deg, var(--ocean-deep), #0a4038, #0d4a40);
+    color: var(--white); text-align: center; position: relative; overflow: hidden;
+  }
+  .testimonial::before {
+    content: '"'; position: absolute; top: -30px; left: 50%; transform: translateX(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 16rem; color: rgba(255,255,255,0.03); line-height: 1; pointer-events: none;
+  }
+  .testimonial .stars { color: var(--gold-bright); font-size: 1.2rem; margin-bottom: 1.2rem; letter-spacing: 3px; position: relative; }
+  .testimonial blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 2.8vw, 1.85rem);
+    font-style: italic; max-width: 680px; margin: 0 auto 1.5rem; line-height: 1.55; position: relative;
+  }
+  .testimonial cite { font-style: normal; font-weight: 600; color: var(--gold-bright); font-size: 0.95rem; }
+
+  /* ── CTA Strip ────────────────────── */
+  .cta-strip { background: var(--sand); text-align: center; padding: 5rem 2rem; }
+  .cta-strip .video-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: var(--ocean); text-decoration: none; font-weight: 500; margin: 1.5rem 0;
+    transition: all 0.3s; font-size: 0.95rem;
+  }
+  .cta-strip .video-link:hover { color: var(--sunset); gap: 0.7rem; }
+
+  /* ── Contact ──────────────────────── */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .contact-info h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; color: var(--ocean); margin-bottom: 1.5rem;
+  }
+  .contact-item { display: flex; gap: 1rem; margin-bottom: 1.4rem; align-items: flex-start; }
+  .contact-icon { font-size: 1.2rem; margin-top: 3px; flex-shrink: 0; }
+  .contact-item strong { display: block; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 2px; }
+  .contact-item a, .contact-item p { color: var(--text); text-decoration: none; font-size: 0.95rem; }
+  .contact-item a:hover { color: var(--ocean); }
+  .contact-map {
+    width: 100%; aspect-ratio: 4/3; border-radius: 18px; border: none;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.07);
+  }
+  .social-links { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
+  .social-link {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--ocean); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .social-link:hover { background: var(--gold); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(200,150,62,0.3); }
+
+  /* ── Footer ───────────────────────── */
+  footer {
+    background: var(--ocean-deep); color: rgba(255,255,255,0.6);
+    text-align: center; padding: 3rem 2rem; font-size: 0.84rem;
+  }
+  footer a { color: var(--gold-bright); text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: var(--gold); }
+
+  /* ── Scroll to Top ────────────────── */
+  .scroll-top {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--ocean); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 1.3rem;
+    opacity: 0; pointer-events: none;
+    transform: translateY(10px);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .scroll-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .scroll-top:hover { background: var(--gold); transform: translateY(-3px); }
+
+  /* ── Mobile Nav ───────────────────── */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; padding: 4px; }
+  .hamburger span {
+    width: 26px; height: 2px; background: var(--white);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 1px;
+  }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(8, 56, 50, 0.97); backdrop-filter: blur(20px);
+    flex-direction: column; align-items: center; justify-content: center; gap: 2.2rem;
+    opacity: 0; transition: opacity 0.4s ease;
+  }
+  .mobile-menu.open { display: flex; opacity: 1; }
+  .mobile-menu a {
+    color: var(--white); text-decoration: none;
+    font-size: 1.6rem; font-family: 'Playfair Display', serif;
+    transition: color 0.3s;
+  }
+  .mobile-menu a:hover { color: var(--gold-bright); }
+
+  /* ── Responsive ───────────────────── */
+  @media (max-width: 900px) {
+    .intro-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .rooms-grid { grid-template-columns: 1fr; }
+    section { padding: 4rem 1.2rem; }
+    .hero { min-height: 100svh; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-sub { font-size: 0.95rem; }
+    .nav-logo { font-size: 1.3rem; }
+    nav { padding: 0 1.2rem; }
+    .amenities-grid { grid-template-columns: 1fr; }
+    .scroll-top { bottom: 1.2rem; right: 1.2rem; width: 40px; height: 40px; }
+  }
+  @media (max-width: 400px) {
+    .hero h1 { font-size: 1.85rem; }
+    .hero-tag { letter-spacing: 3px; font-size: 0.68rem; }
+    .btn-book, .btn-outline { padding: 0.55rem 1.3rem; font-size: 0.8rem; }
+    .hero-content { padding: 1rem; }
+    .section-title { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">Bounty Resort</a>
+  <ul class="nav-links">
+    <li><a href="#rooms">Rooms</a></li>
+    <li><a href="#amenities">Amenities</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://app-apac.thebookingbutton.com/properties/bountyresortdirect" class="btn-book" target="_blank" rel="noopener">Book Now</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#rooms" onclick="toggleMenu()">Rooms</a>
+  <a href="#amenities" onclick="toggleMenu()">Amenities</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="https://app-apac.thebookingbutton.com/properties/bountyresortdirect" class="btn-book" target="_blank" rel="noopener" onclick="toggleMenu()">Book Now</a>
+</div>
+
+<a href="#" class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</a>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-content">
+    <p class="hero-tag">Koh Phangan · Thailand</p>
+    <h1>Where the sun meets the sea</h1>
+    <p class="hero-sub">A secluded paradise on Haad Dao Deuk. Private beach, sunset views, and island bungalows nestled in tropical gardens.</p>
+    <div class="hero-buttons">
+      <a href="https://app-apac.thebookingbutton.com/properties/bountyresortdirect" class="btn-book" target="_blank" rel="noopener">Book Your Stay</a>
+      <a href="#rooms" class="btn-outline">Explore Rooms</a>
+    </div>
+  </div>
+  <div class="scroll-indicator" onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'})"><span></span></div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <div class="intro-grid reveal">
+      <div class="intro-image-wrap">
+        <img src="images/bungalow-sea-view.jpg" alt="Bounty Resort Beach" class="intro-image" loading="lazy">
+      </div>
+      <div>
+        <p class="section-tag">Welcome to Paradise</p>
+        <h2 class="section-title">Your Secret Hideaway</h2>
+        <div class="intro-text">
+          <h3>Haad Dao Deuk — Our Private Cove</h3>
+          <p>Bounty Resort sits on the southern tip of Haad Yao beach, home to a tiny private cove with powder-white sand and spectacular sunset views. Just a 5-minute walk from Haad Yao's vibrant nightlife and restaurants.</p>
+          <p>Our resort blends cozy rooms and island-style bungalows around a scenic garden-viewpoint swimming pool. All rooms come with air conditioning, minibar, kettle, and hot shower.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Rooms -->
+<section id="rooms" style="background: var(--white);">
+  <div class="container">
+    <p class="section-tag">Accommodation</p>
+    <h2 class="section-title">Cozy Rooms & Island Bungalows</h2>
+    <p class="section-subtitle">Set amid tropical gardens with sea views. Every room is a front-row seat to paradise.</p>
+    <div class="rooms-grid">
+
+      <div class="room-card reveal" onclick="window.open('https://app-apac.thebookingbutton.com/properties/bountyresortdirect','_blank')" style="cursor:pointer">
+        <div class="room-img-wrap"><img src="images/studio-sea-view.jpg" alt="Studio Sea View" class="room-img" loading="lazy"></div>
+        <div class="room-body">
+          <h4>Studio Sea View</h4>
+          <div class="room-meta"><span>👤 2 Guests</span><span>📐 80 m²</span><span>🌊 Sea View</span></div>
+          <p class="room-price">From ฿1,500 <small>/ night</small></p>
+        </div>
+      </div>
+
+      <div class="room-card reveal" onclick="window.open('https://app-apac.thebookingbutton.com/properties/bountyresortdirect','_blank')" style="cursor:pointer">
+        <div class="room-img-wrap"><img src="images/bungalow-sea-view.jpg" alt="Island Sea View Bungalow" class="room-img" loading="lazy"></div>
+        <div class="room-body">
+          <h4>Island Sea View Bungalow</h4>
+          <div class="room-meta"><span>🌊 Sea View</span><span>🏝️ Private Bungalow</span></div>
+          <p class="room-price">From ฿1,800 <small>/ night</small></p>
+        </div>
+      </div>
+
+      <div class="room-card reveal" onclick="window.open('https://app-apac.thebookingbutton.com/properties/bountyresortdirect','_blank')" style="cursor:pointer">
+        <div class="room-img-wrap"><img src="images/deluxe-sea-view.jpg" alt="Deluxe Sea View" class="room-img" loading="lazy"></div>
+        <div class="room-body">
+          <h4>Deluxe Sea View</h4>
+          <div class="room-meta"><span>👤 2 Guests</span><span>📐 38 m²</span><span>🌊 Sea View</span></div>
+          <p class="room-price">From ฿1,200 <small>/ night</small></p>
+        </div>
+      </div>
+
+      <div class="room-card reveal" onclick="window.open('https://app-apac.thebookingbutton.com/properties/bountyresortdirect','_blank')" style="cursor:pointer">
+        <div class="room-img-wrap"><img src="images/family-room.jpg" alt="Family Room" class="room-img" loading="lazy"></div>
+        <div class="room-body">
+          <h4>Family Room</h4>
+          <div class="room-meta"><span>👨‍👩‍👧 3 Guests</span><span>📐 40 m²</span><span>🌊 Sea View</span></div>
+          <p class="room-price">From ฿2,200 <small>/ night</small></p>
+        </div>
+      </div>
+
+      <div class="room-card reveal" onclick="window.open('https://app-apac.thebookingbutton.com/properties/bountyresortdirect','_blank')" style="cursor:pointer">
+        <div class="room-img-wrap"><img src="images/superior-garden.jpg" alt="Superior Garden" class="room-img" loading="lazy"></div>
+        <div class="room-body">
+          <h4>Superior Garden</h4>
+          <div class="room-meta"><span>👤 2 Guests</span><span>📐 36 m²</span><span>🌴 Garden View</span></div>
+          <p class="room-price">From ฿900 <small>/ night</small></p>
+        </div>
+      </div>
+
+      <div class="room-card reveal" onclick="window.open('https://app-apac.thebookingbutton.com/properties/bountyresortdirect','_blank')" style="cursor:pointer">
+        <div class="room-img-wrap"><img src="images/superior-sea-view-room.jpg" alt="Superior Sea View" class="room-img" loading="lazy"></div>
+        <div class="room-body">
+          <h4>Superior Sea View</h4>
+          <div class="room-meta"><span>👤 2 Guests</span><span>📐 38 m²</span><span>🌊 Sea View</span></div>
+          <p class="room-price">From ฿1,000 <small>/ night</small></p>
+        </div>
+      </div>
+
+      <div class="room-card reveal" onclick="window.open('https://app-apac.thebookingbutton.com/properties/bountyresortdirect','_blank')" style="cursor:pointer">
+        <div class="room-img-wrap"><img src="images/wooden-bungalow.jpg" alt="Island Wooden Bungalow" class="room-img" loading="lazy"></div>
+        <div class="room-body">
+          <h4>Island Wooden Bungalow</h4>
+          <div class="room-meta"><span>👤 2 Guests</span><span>📐 24 m²</span><span>🌴 Garden</span></div>
+          <p class="room-price">From ฿700 <small>/ night</small></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Amenities -->
+<section id="amenities">
+  <div class="container">
+    <p class="section-tag">Services & Facilities</p>
+    <h2 class="section-title">Everything You Need</h2>
+    <p class="section-subtitle">From coral reef snorkeling to sunset dining — we've got your island experience covered.</p>
+    <div class="amenities-grid">
+      <div class="amenity-card reveal"><div class="amenity-icon">🤿</div><h4>Snorkeling</h4><p>Dive straight into the rich coral reef from Haad Dao Deuk. We also arrange sightseeing and fishing trips on traditional Thai longtail boats.</p></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">🏊</div><h4>Swimming Pool</h4><p>Our scenic garden-viewpoint pool overlooks the sea — the perfect spot to cool off and watch the sunset.</p></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">🏍️</div><h4>Bike Rental</h4><p>Explore the island at your own pace. We offer motorcycles for rent so you can discover every hidden corner of Koh Phangan.</p></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">🚐</div><h4>Shuttle Service</h4><p>Hassle-free transfers from the port to our resort. Just let us know your arrival time.</p></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">🍽️</div><h4>Restaurant</h4><p>Open-plan hillside dining with stunning sunset views. Serving delicious Thai and Western cuisine — dine traditional Thai-style or at a table.</p></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">🧺</div><h4>Laundry Service</h4><p>Stay fresh during your island getaway. Drop off your laundry and we'll take care of it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonial -->
+<section class="testimonial">
+  <div class="container reveal">
+    <div class="stars">★ ★ ★ ★ ★</div>
+    <blockquote>"Hot water, beautiful view of the sea, really good value for money — they have a little secret beach, perfect to watch sunset from. Swimming pool is great, staff are helpful and friendly… and a kettle!!"</blockquote>
+    <cite>— Grace</cite>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip">
+  <div class="container reveal">
+    <p class="section-tag">Ready for Paradise?</p>
+    <h2 class="section-title">Book online today</h2>
+    <p class="section-subtitle" style="margin:0 auto 1.2rem;">Look forward to a relaxing stay with us.</p>
+    <a href="https://www.youtube.com/watch?v=CtRV7chtNqA" target="_blank" rel="noopener" class="video-link">▶ Watch video tour around Koh Phangan</a><br>
+    <a href="https://app-apac.thebookingbutton.com/properties/bountyresortdirect" class="btn-book" target="_blank" rel="noopener" style="display:inline-block;margin-top:1.5rem;padding:0.9rem 2.5rem;font-size:1rem;">Book Now</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" style="background: var(--white);">
+  <div class="container">
+    <p class="section-tag">Get in Touch</p>
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">Our dedicated team is ready around the clock.</p>
+    <div class="contact-grid reveal">
+      <div class="contact-info">
+        <h4>📍 Bounty Resort</h4>
+        <div class="contact-item"><span class="contact-icon">📍</span><div><strong>Address</strong><p>85/1 Moo 8, Haad Dao Deuk<br>Koh Phangan, Suratthani 84280<br>Thailand</p></div></div>
+        <div class="contact-item"><span class="contact-icon">📞</span><div><strong>Phone</strong><a href="tel:+6677349105">+66 77 349105</a></div></div>
+        <div class="contact-item"><span class="contact-icon">✉️</span><div><strong>Email</strong><a href="mailto:info@bountyresort.com">info@bountyresort.com</a></div></div>
+        <div class="social-links">
+          <a href="https://www.facebook.com/bounty.kohphangan" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">f</a>
+          <a href="https://www.instagram.com/bountykohphangan/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">📷</a>
+          <a href="https://goo.gl/maps/H5qUFicZyoWVPQ389" target="_blank" rel="noopener" class="social-link" aria-label="Google Maps">📍</a>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:18px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.07);aspect-ratio:4/3;background:linear-gradient(135deg,#0d554a,#1a7a6a);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.8rem;cursor:pointer"
+           onclick="window.open('https://goo.gl/maps/H5qUFicZyoWVPQ389','_blank')">
+        <div style="font-size:3rem">📍</div>
+        <div style="color:rgba(255,255,255,0.9);font-family:'Playfair Display',serif;font-size:1.2rem;">View on Google Maps</div>
+        <div style="color:rgba(255,255,255,0.6);font-size:0.8rem;">Haad Dao Deuk · Koh Phangan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold-bright);margin-bottom:0.5rem;">Bounty Resort</p>
+  <p>© 2026 Bounty Resort. All Rights Reserved.</p>
+  <p style="margin-top:0.5rem;">
+    <a href="https://bountyresort.com/privacy-policy/">Privacy Policy</a> · <a href="https://bountyresort.com/terms-and-conditions/">Terms</a>
+  </p>
+</footer>
+
+<script>
+  // ── Nav scroll ──
+  const nav = document.getElementById('nav');
+  const scrollTop = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 80);
+    scrollTop.classList.toggle('visible', y > 600);
+  }, { passive: true });
+
+  // ── Mobile menu ──
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+
+  // ── Scroll Reveal ──
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ── Parallax Hero ──
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const heroBg = document.getElementById('heroBg');
+        if (heroBg) {
+          const scrolled = window.scrollY;
+          if (scrolled < window.innerHeight) {
+            heroBg.style.transform = `translate3d(0, ${scrolled * 0.35}px, 0)`;
+          }
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+</script>
+</body>
+</html>
