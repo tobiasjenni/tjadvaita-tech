@@ -46,10 +46,6 @@ a:hover{color:var(--gold-light)}
 .nav-list{display:flex;list-style:none;gap:20px;align-items:center;flex-wrap:wrap}
 .nav-link{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color 0.3s;font-weight:400}
 .nav-link:hover{color:var(--gold)}
-.lang-switch{display:flex;gap:1px;margin-left:4px;align-items:center}
-.lang-btn{background:none;border:none;cursor:pointer;font-size:10px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.2);padding:3px 6px;transition:all 0.2s;font-family:var(--sans)}
-.lang-btn.active{color:var(--gold)}
-.lang-btn:hover{color:var(--gold-light)}
 
 .hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;z-index:1001;padding:4px}
 .hamburger .bar{width:22px;height:1.5px;background:var(--gold);transition:all 0.3s;border-radius:1px}
@@ -75,6 +71,24 @@ a:hover{color:var(--gold-light)}
 .disc-nav{display:flex;flex-wrap:wrap;gap:4px 0;padding:0 24px;margin-bottom:24px}
 .disc-item{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim)}
 .disc-dot{color:var(--text-dim);margin:0 6px;font-size:8px}
+
+/* ── LANG SWITCHER ── */
+.lang-switch{display:flex;gap:1px;align-items:center;margin-left:8px}
+.lang-switch .lang-btn{background:none;border:none;cursor:pointer;font-size:10px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.2);padding:3px 6px;transition:all 0.2s;font-family:var(--sans)}
+.lang-switch .lang-btn.active{color:var(--gold)}
+.lang-switch .lang-btn:hover{color:var(--gold-light)}
+
+/* ── HERO ── */
+.hero-section{position:relative;height:90vh;min-height:560px;display:flex;align-items:flex-end;overflow:hidden;padding-top:60px}
+.hero-bg{position:absolute;inset:0;background:url('../images/julia-sunset.jpg') 56% 18% / cover no-repeat;animation:heroZoom 20s ease-in-out infinite alternate}
+@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.05)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.55)0%,rgba(0,0,0,0.1)60%,transparent 100%),linear-gradient(to top,rgba(0,0,0,0.8)0%,transparent 40%)}
+.hero-content{position:relative;z-index:2;padding:0 clamp(24px,7vw,96px) clamp(48px,6vw,80px);max-width:700px}
+.hero-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:18px;font-size:.6rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.hero-eyebrow span{display:block;width:36px;height:1px;background:var(--gold);opacity:.6}
+.hero-section h1{font-family:var(--serif);font-size:clamp(2.8rem,8vw,5.5rem);font-weight:300;line-height:1.06;color:var(--text-primary);margin-bottom:12px;text-shadow:0 2px 20px rgba(0,0,0,0.5)}
+.hero-section h1 em{font-style:italic;color:var(--gold-light)}
+.hero-sub{font-size:.85rem;font-weight:300;color:var(--text-secondary);letter-spacing:.04em}
 
 /* ── PORTRAIT CARD (used in both about and individual) ── */
 .portrait-block{margin-bottom:48px}
@@ -144,23 +158,55 @@ a:hover{color:var(--gold-light)}
 
 /* ── MOBILE ≤860px ── */
 @media(max-width:860px){
+  .section{padding:52px 20px}
+  .hero-section{height:70vh;min-height:420px;padding-top:52px}
+  .hero-bg{background-position:56% 25%}
+  .hero-section h1{font-size:clamp(2.4rem,9vw,3.6rem)}
+  .hero-content{padding:0 24px 48px}
   .nav-list{display:none}
   .nav-list.mobile-open{display:flex;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.98);flex-direction:column;justify-content:center;align-items:center;gap:28px;z-index:1000;backdrop-filter:blur(30px)}
   .nav-list.mobile-open .nav-link{font-size:1rem;letter-spacing:2px}
   .hamburger{display:flex}
+  .body-text{font-size:0.92rem}
+  .portrait-bio{font-size:0.9rem}
+  .card p{font-size:0.88rem}
   .card-grid{grid-template-columns:1fr;gap:16px}
   .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
   .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:200px 120px 120px}
   .mosaic-item:first-child{grid-column:1/3;grid-row:1/2}
   .nepal-strip{grid-template-columns:repeat(2,1fr)}
+  .roots-grid{grid-template-columns:1fr 1fr}
+  .roots-grid .roots-img{aspect-ratio:3/4;object-fit:contain;background:var(--near-black)}
+  .disc-nav{gap:2px 0;justify-content:center}
+  .disc-item{font-size:9px;letter-spacing:1.5px}
+  .lang-switch .lang-btn{font-size:9px;padding:2px 5px}
 }
 
 /* ── MOBILE ≤480px ── */
 @media(max-width:480px){
-  .section{padding:60px 20px}
+  .section{padding:44px 16px}
+  .hero-section{height:60vh;min-height:360px;padding-top:48px}
+  .hero-bg{background-position:50% 30%}
+  .hero-section h1{font-size:2.2rem}
+  .hero-sub{font-size:0.78rem}
+  .hero-content{padding:0 20px 36px}
+  .hero-eyebrow{font-size:0.55rem;gap:10px}
+  .hero-eyebrow span{width:28px}
+  .section-title{font-size:1.6rem}
+  .body-text{font-size:0.85rem}
+  .portrait-bio{font-size:0.85rem}
+  .card{padding:24px 20px}
+  .card p{font-size:0.85rem}
   .gallery-grid{grid-template-columns:repeat(2,1fr);gap:4px}
   .nepal-strip{grid-template-columns:1fr}
+  .nepal-strip img{aspect-ratio:16/9}
   .footer-grid{grid-template-columns:1fr;gap:20px}
-  .section-title{font-size:1.6rem}
+  .footer{padding:36px 16px 24px}
+  .quote-section{padding:40px 16px}
   .portrait-name{font-size:1.3rem}
+  .tag{font-size:9px;padding:5px 10px}
+  .disc-nav{gap:2px 0}
+  .disc-item{font-size:8px;letter-spacing:1px}
+  .disc-dot{margin:0 4px}
+  .lang-switch .lang-btn{font-size:8px;padding:2px 4px}
 }

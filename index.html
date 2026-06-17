@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=9">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
 </head>
 <body>
@@ -18,17 +18,17 @@
   <div class="nav-container">
     <a href="/" class="nav-logo" style="font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:5px;color:var(--gold);text-decoration:none;text-transform:uppercase">TJ Advaita</a>
     <div class="nav-menu" style="display:flex;align-items:center;gap:0">
-      <ul class="nav-list" id="navList" style="display:flex;list-style:none;gap:20px;align-items:center;flex-wrap:wrap">
+      <ul class="nav-list" id="navList">
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#teachings" class="nav-link">Teachings</a></li>
         <li><a href="#nepal" class="nav-link">Nepal</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
-        <li class="lang-switch" style="display:flex;gap:1px;margin-left:4px;align-items:center">
-          <button class="lang-btn active" data-lang="en">EN</button>
-          <button class="lang-btn" data-lang="de">DE</button>
-          <button class="lang-btn" data-lang="ru">RU</button>
-        </li>
       </ul>
+      <div class="lang-switch" id="langSwitchHeader">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="de">DE</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
       <div class="hamburger" id="hamburger">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </div>
@@ -37,6 +37,17 @@
 </nav>
 
 <main>
+
+<!-- HERO -->
+<section class="hero-section" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span></span>TJ Advaita</div>
+    <h1 data-i18n-html="hero.title">Ancient Wisdom &<br><em>Sacred Arts.</em></h1>
+    <p class="hero-sub" data-i18n="hero.sub">Julia &amp; Tobias — Koh Phangan · Nepal</p>
+  </div>
+</section>
 
 <!-- DISCIPLINES NAV -->
 <div class="disc-nav">
@@ -136,16 +147,16 @@
     <p class="section-label center reveal" style="text-align:center" data-i18n="roots.label">Roots</p>
     <h2 class="section-title center reveal reveal-d1" style="text-align:center" data-i18n="roots.title">Switzerland <span style="font-weight:200;color:var(--text-dim)">·</span> Crimea <span style="font-weight:200;color:var(--text-dim)">·</span> The World</h2>
     <div class="divider reveal reveal-d2" style="margin:16px auto 32px"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+    <div class="roots-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
       <div class="reveal reveal-d2">
         <div style="width:100%;aspect-ratio:3/4;overflow:hidden;background:var(--near-black);margin-bottom:12px">
-          <img src="images/tobias-geronimo.jpg" alt="Geronimo" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+          <img src="images/tobias-geronimo.jpg" alt="Geronimo" loading="lazy" class="roots-img" style="width:100%;height:100%;object-fit:contain">
         </div>
         <p class="body-text" data-i18n="roots.tobias">Tobias — Swiss, born in Bern. 20+ years in medicine, 10+ in holistic and plant medicine. Generator 2/4, Vessel of Love.</p>
       </div>
       <div class="reveal reveal-d3">
         <div style="width:100%;aspect-ratio:3/4;overflow:hidden;background:var(--near-black);margin-bottom:12px">
-          <img src="images/julia-ancestral.jpg" alt="Ancestral" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+          <img src="images/julia-ancestral.jpg" alt="Ancestral" loading="lazy" class="roots-img" style="width:100%;height:100%;object-fit:contain">
         </div>
         <p class="body-text" data-i18n="roots.julia">Julia — Russian, born in Crimea. Sanskrit, Qigong, classical Tantra, yoga. Manifesting Generator 5/1, Left Angle Cross of Individualism.</p>
       </div>

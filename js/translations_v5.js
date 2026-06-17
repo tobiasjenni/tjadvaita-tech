@@ -2,7 +2,7 @@
 const T = {
   en: {
     about:"About",teachings:"Teachings",magic_land:"Magic Land",nepal:"Nepal",contact:"Contact",get_in_touch:"Get in Touch",
-    hero_sub:"Koh Phangan · Nepal",
+    hero_title:"Ancient Wisdom & Sacred Arts",
     hero_h1_1:"Live deeply.",hero_h1_em:"Teach",hero_h1_2:"what matters.",
     hero_p:"Two healers. Ancient roots. A living sanctuary built from everything we know.",
     hero_btn1:"Our Story",hero_btn2:"What We Teach",scroll:"Scroll",
@@ -157,7 +157,7 @@ const T = {
   },
   de: {
     about:"Über uns",teachings:"Lehren",magic_land:"Magic Land",nepal:"Nepal",contact:"Kontakt",get_in_touch:"Kontakt",
-    hero_sub:"Koh Phangan · Nepal",
+    hero_title:"Alte Weisheit & Heilige Künste",
     hero_h1_1:"Tief leben.",hero_h1_em:"Lehren",hero_h1_2:"was zählt.",
     hero_p:"Zwei Heiler. Alte Wurzeln. Ein lebendiges Refugium, gebaut aus allem, was wir wissen.",
     hero_btn1:"Unsere Geschichte",hero_btn2:"Was wir lehren",scroll:"Scrollen",
@@ -311,8 +311,8 @@ const T = {
     open_head_value:"Inspiriert durch Ideen",open_ajna_value:"Fließende Intelligenz",open_throat_value:"Stimme wenn gerufen",open_root_value:"Vom Druck befreit"
   },
   ru: {
-    about:"О нас",teachings:"Учения",magic_land:"Magic Land",nepal:"Непал",contact:"Контакт",get_in_touch:"Связаться",
-    hero_sub:"Ко Пханган · Непал",
+    about:"О нас",teachings:"Учения",magic_land:"Magic Land",nepal:"Непал",contact:"Контакты",get_in_touch:"Связаться",
+    hero_title:"Древняя Мудрость & Священные Искусства",
     hero_h1_1:"Жить глубоко.",hero_h1_em:"Учить",hero_h1_2:"тому, что важно.",
     hero_p:"Два целителя. Древние корни. Живое убежище, построенное из всего, что мы знаем.",
     hero_btn1:"Наша история",hero_btn2:"Чему мы учим",scroll:"Вниз",
