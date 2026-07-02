@@ -9,7 +9,7 @@
     localStorage.setItem('lang', lang);
 
     // Update lang switcher buttons
-    document.querySelectorAll('#lang-switch button').forEach(b => {
+    document.querySelectorAll('#langSwitchHeader button, .lang-switch button').forEach(b => {
       b.classList.toggle('active', b.dataset.lang === lang);
     });
 
@@ -32,7 +32,7 @@
   }
 
   // Click handler
-  document.getElementById('lang-switch').addEventListener('click', e => {
+  document.getElementById('langSwitchHeader').addEventListener('click', e => {
     const btn = e.target.closest('button');
     if (!btn || !btn.dataset.lang) return;
     apply(btn.dataset.lang);
