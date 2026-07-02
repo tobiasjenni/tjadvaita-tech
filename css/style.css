@@ -48,7 +48,7 @@ a:hover{color:var(--gold-light)}
 .nav-link:hover{color:var(--gold)}
 
 .hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;z-index:1001;padding:4px}
-.hamburger .bar{width:22px;height:1.5px;background:var(--gold);transition:all 0.3s;border-radius:1px}
+.hamburger .bar{width:22px;height:1.5px;background:var(--gold);transition:all 0.35s cubic-bezier(0.4,0,0.2,1);border-radius:1px}
 .hamburger.active .bar:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
 .hamburger.active .bar:nth-child(2){opacity:0}
 .hamburger.active .bar:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
@@ -164,8 +164,12 @@ a:hover{color:var(--gold-light)}
   .hero-section h1{font-size:clamp(2.4rem,9vw,3.6rem)}
   .hero-content{padding:0 24px 48px}
   .nav-list{display:none}
-  .nav-list.mobile-open{display:flex;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.98);flex-direction:column;justify-content:center;align-items:center;gap:28px;z-index:1000;backdrop-filter:blur(30px)}
-  .nav-list.mobile-open .nav-link{font-size:1rem;letter-spacing:2px}
+  .nav-list.mobile-open{display:flex;position:fixed;z-index:9999;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.98);flex-direction:column;justify-content:center;align-items:center;gap:32px;backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);padding:60px 24px}
+  .nav-list.mobile-open .nav-link{font-size:1.15rem;letter-spacing:3px;font-weight:300;transition:color 0.2s}
+  .nav-list.mobile-open .nav-link:hover{color:var(--gold)}
+  .nav-list.mobile-open .lang-switch{display:flex;margin-top:8px;gap:4px}
+  .nav-list.mobile-open .lang-switch .lang-btn{font-size:12px;padding:6px 12px;color:var(--text-dim)}
+  .nav-list.mobile-open .lang-switch .lang-btn.active{color:var(--gold)}
   .hamburger{display:flex}
   .body-text{font-size:0.92rem}
   .portrait-bio{font-size:0.9rem}
@@ -210,3 +214,7 @@ a:hover{color:var(--gold-light)}
   .disc-dot{margin:0 4px}
   .lang-switch .lang-btn{font-size:8px;padding:2px 4px}
 }
+
+.nav-logo{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:5px;color:var(--gold);text-decoration:none;text-transform:uppercase}
+
+body.menu-open{overflow:hidden}

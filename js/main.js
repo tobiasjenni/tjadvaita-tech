@@ -28,12 +28,24 @@ document.addEventListener('DOMContentLoaded', function() {
   // ═══ HAMBURGER MENU ═══
   const hamburger = document.getElementById('hamburger');
   const navList = document.getElementById('navList');
+  const langSwitch = document.getElementById('langSwitchHeader');
 
   if (hamburger && navList) {
     hamburger.addEventListener('click', function() {
+      const isOpen = navList.classList.toggle('mobile-open');
       hamburger.classList.toggle('active');
-      navList.classList.toggle('mobile-open');
-      document.body.style.overflow = navList.classList.contains('mobile-open') ? 'hidden' : '';
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      
+      // Move lang-switch into mobile overlay
+      if (langSwitch) {
+        if (isOpen) {
+          navList.appendChild(langSwitch);
+          langSwitch.style.display = 'flex';
+        } else {
+          document.querySelector('.nav-menu').appendChild(langSwitch);
+          langSwitch.style.display = '';
+        }
+      }
     });
 
     // Close menu on link click
@@ -42,6 +54,11 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.classList.remove('active');
         navList.classList.remove('mobile-open');
         document.body.style.overflow = '';
+        // Return lang-switch to nav-menu
+        if (langSwitch && navList.contains(langSwitch)) {
+          document.querySelector('.nav-menu').appendChild(langSwitch);
+          langSwitch.style.display = '';
+        }
       });
     });
   }
