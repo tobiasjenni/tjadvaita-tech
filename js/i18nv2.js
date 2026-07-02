@@ -15,14 +15,14 @@
 
     // Named i18n elements
     document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.dataset.i18n;
+      const key = el.dataset.i18n.replace(/\./g, '_');
       const t = T[lang] && T[lang][key];
       if (t !== undefined) el.textContent = t;
     });
 
     // HTML-safe i18n (preserves child elements like <em>, <a>)
     document.querySelectorAll('[data-i18n-html]').forEach(el => {
-      const key = el.dataset.i18nHtml;
+      const key = el.dataset.i18nHtml.replace(/\./g, '_');
       const t = T[lang] && T[lang][key];
       if (t !== undefined) el.innerHTML = t;
     });
