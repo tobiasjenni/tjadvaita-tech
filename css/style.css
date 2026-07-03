@@ -156,6 +156,21 @@ a:hover{color:var(--gold-light)}
 .footer-bottom{text-align:center;padding-top:20px;border-top:1px solid var(--border-gold)}
 .footer-bottom p{font-size:0.72rem;color:rgba(255,255,255,0.15);font-weight:300}
 
+
+.menu-close-btn{
+  position:fixed;top:18px;right:20px;
+  z-index:10002;
+  width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center;
+  background:none;border:1px solid rgba(255,255,255,0.1);
+  color:rgba(255,255,255,0.5);font-size:1.2rem;
+  cursor:pointer;
+  transition:all 0.25s;
+}
+.menu-close-btn:hover{
+  color:var(--gold);border-color:var(--gold);
+  background:rgba(201,169,110,0.08);
+}
 /* ── MOBILE ≤860px ── */
 @media(max-width:860px){
   .section{padding:52px 20px}

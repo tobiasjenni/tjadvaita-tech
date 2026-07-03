@@ -30,6 +30,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const navList = document.getElementById('navList');
   const langSwitch = document.getElementById('langSwitchHeader');
 
+  // Create close button for overlay
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'menu-close-btn';
+  closeBtn.innerHTML = '✕';
+  closeBtn.setAttribute('aria-label', 'Close menu');
+
   function closeMenu() {
     hamburger.classList.remove('active');
     navList.classList.remove('mobile-open');
@@ -38,17 +44,26 @@ document.addEventListener('DOMContentLoaded', function() {
       document.querySelector('.nav-menu').appendChild(langSwitch);
       langSwitch.style.display = '';
     }
+    if (navList.contains(closeBtn)) {
+      closeBtn.remove();
+    }
   }
 
   function openMenu() {
     hamburger.classList.add('active');
     navList.classList.add('mobile-open');
+    navList.appendChild(closeBtn);
     document.body.style.overflow = 'hidden';
     if (langSwitch) {
       navList.appendChild(langSwitch);
       langSwitch.style.display = 'flex';
     }
   }
+
+  closeBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeMenu();
+  });
 
   if (hamburger && navList) {
     hamburger.addEventListener('click', function(e) {
