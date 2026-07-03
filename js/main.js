@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ═══ HAMBURGER MENU ═══
   const hamburger = document.getElementById('hamburger');
-  const navList = document.getElementById('navList');
+  const navList = document.getElementById('navList') || document.getElementById('navLinks');
   const langSwitch = document.getElementById('langSwitchHeader');
 
   // Create ONE close button
