@@ -47,11 +47,11 @@ a:hover{color:var(--gold-light)}
 .nav-link{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color 0.3s;font-weight:400}
 .nav-link:hover{color:var(--gold)}
 
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:10001;padding:8px;position:relative}
-.hamburger .bar{width:24px;height:1.5px;background:var(--gold);transition:all 0.35s cubic-bezier(0.4,0,0.2,1);border-radius:1px;display:block}
-.hamburger.active .bar:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
-.hamburger.active .bar:nth-child(2){opacity:0}
-.hamburger.active .bar:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;z-index:10001;padding:8px;position:relative;width:40px;height:40px}
+.hamburger .bar{width:24px;height:1.5px;background:var(--gold);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);border-radius:1px;display:block;transform-origin:center}
+.hamburger.active .bar:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.active .bar:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.active .bar:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
 /* ── SECTIONS ── */
 .section{padding:80px 24px}
@@ -239,13 +239,6 @@ a:hover{color:var(--gold-light)}
     color:var(--gold);border-color:var(--gold);
   }
 
-  /* Close hint */
-  .nav-list.mobile-open::after{
-    content:'✕';
-    position:fixed;top:20px;right:24px;
-    font-size:1.4rem;color:rgba(255,255,255,0.3);
-    z-index:10001;
-  }
 
   .body-text{font-size:0.92rem}
   .portrait-bio{font-size:0.9rem}
