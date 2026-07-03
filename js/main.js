@@ -30,30 +30,30 @@ document.addEventListener('DOMContentLoaded', function() {
   const navList = document.getElementById('navList');
   const langSwitch = document.getElementById('langSwitchHeader');
 
-  // Create close button for overlay
+  // Create ONE close button
   const closeBtn = document.createElement('button');
-  closeBtn.className = 'menu-close-btn';
-  closeBtn.innerHTML = '✕';
+  closeBtn.className = 'mobile-close';
   closeBtn.setAttribute('aria-label', 'Close menu');
+  closeBtn.innerHTML = '&#10005;';
 
   function closeMenu() {
     hamburger.classList.remove('active');
     navList.classList.remove('mobile-open');
     document.body.style.overflow = '';
+    document.body.classList.remove('menu-open');
+    if (closeBtn.parentNode) closeBtn.remove();
     if (langSwitch && navList.contains(langSwitch)) {
       document.querySelector('.nav-menu').appendChild(langSwitch);
       langSwitch.style.display = '';
-    }
-    if (navList.contains(closeBtn)) {
-      closeBtn.remove();
     }
   }
 
   function openMenu() {
     hamburger.classList.add('active');
     navList.classList.add('mobile-open');
-    navList.appendChild(closeBtn);
     document.body.style.overflow = 'hidden';
+    document.body.classList.add('menu-open');
+    navList.insertBefore(closeBtn, navList.firstChild);
     if (langSwitch) {
       navList.appendChild(langSwitch);
       langSwitch.style.display = 'flex';
@@ -68,30 +68,19 @@ document.addEventListener('DOMContentLoaded', function() {
   if (hamburger && navList) {
     hamburger.addEventListener('click', function(e) {
       e.stopPropagation();
-      if (navList.classList.contains('mobile-open')) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
+      navList.classList.contains('mobile-open') ? closeMenu() : openMenu();
     });
 
-    // Close when tapping overlay background
     navList.addEventListener('click', function(e) {
-      if (e.target === navList) {
-        closeMenu();
-      }
+      if (e.target === navList) closeMenu();
     });
 
-    // Close on link click
     navList.querySelectorAll('.nav-link').forEach(function(link) {
       link.addEventListener('click', closeMenu);
     });
 
-    // Close on Escape key
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && navList.classList.contains('mobile-open')) {
-        closeMenu();
-      }
+      if (e.key === 'Escape' && navList.classList.contains('mobile-open')) closeMenu();
     });
   }
 
