@@ -30,36 +30,53 @@ document.addEventListener('DOMContentLoaded', function() {
   const navList = document.getElementById('navList');
   const langSwitch = document.getElementById('langSwitchHeader');
 
+  function closeMenu() {
+    hamburger.classList.remove('active');
+    navList.classList.remove('mobile-open');
+    document.body.style.overflow = '';
+    if (langSwitch && navList.contains(langSwitch)) {
+      document.querySelector('.nav-menu').appendChild(langSwitch);
+      langSwitch.style.display = '';
+    }
+  }
+
+  function openMenu() {
+    hamburger.classList.add('active');
+    navList.classList.add('mobile-open');
+    document.body.style.overflow = 'hidden';
+    if (langSwitch) {
+      navList.appendChild(langSwitch);
+      langSwitch.style.display = 'flex';
+    }
+  }
+
   if (hamburger && navList) {
-    hamburger.addEventListener('click', function() {
-      const isOpen = navList.classList.toggle('mobile-open');
-      hamburger.classList.toggle('active');
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-      
-      // Move lang-switch into mobile overlay
-      if (langSwitch) {
-        if (isOpen) {
-          navList.appendChild(langSwitch);
-          langSwitch.style.display = 'flex';
-        } else {
-          document.querySelector('.nav-menu').appendChild(langSwitch);
-          langSwitch.style.display = '';
-        }
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (navList.classList.contains('mobile-open')) {
+        closeMenu();
+      } else {
+        openMenu();
       }
     });
 
-    // Close menu on link click
+    // Close when tapping overlay background
+    navList.addEventListener('click', function(e) {
+      if (e.target === navList) {
+        closeMenu();
+      }
+    });
+
+    // Close on link click
     navList.querySelectorAll('.nav-link').forEach(function(link) {
-      link.addEventListener('click', function() {
-        hamburger.classList.remove('active');
-        navList.classList.remove('mobile-open');
-        document.body.style.overflow = '';
-        // Return lang-switch to nav-menu
-        if (langSwitch && navList.contains(langSwitch)) {
-          document.querySelector('.nav-menu').appendChild(langSwitch);
-          langSwitch.style.display = '';
-        }
-      });
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && navList.classList.contains('mobile-open')) {
+        closeMenu();
+      }
     });
   }
 
