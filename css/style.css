@@ -49,9 +49,10 @@ a:hover{color:var(--gold-light)}
 
 .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;z-index:10001;padding:0;width:40px;height:40px}
 .hamburger .bar{width:24px;height:1.5px;background:var(--gold);border-radius:1px;transition:all 0.3s ease}
-.hamburger.active .bar:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-.hamburger.active .bar:nth-child(2){opacity:0}
-.hamburger.active .bar:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.hamburger.active .bar{opacity:0}
+
+
+
 
 /* ── SECTIONS ── */
 .section{padding:80px 24px}
@@ -199,7 +200,7 @@ a:hover{color:var(--gold-light)}
     align-items:center;
     gap:20px;
     padding:80px 32px;
-    animation:menuIn 0.35s cubic-bezier(0.22,1,0.36,1);
+    animation:menuIn 0.3s ease;
   }
   @keyframes menuIn{
     from{opacity:0;transform:translateX(20px)}
@@ -291,3 +292,6 @@ a:hover{color:var(--gold-light)}
 .nav-logo{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:5px;color:var(--gold);text-decoration:none;text-transform:uppercase}
 
 body.menu-open{overflow:hidden}
+
+body.menu-open .hamburger{opacity:0;pointer-events:none}
+body.menu-open .hamburger .bar{background:transparent}
