@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ondavayu — Logo</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0d0d0d; color:#fff; font-family:system-ui,sans-serif; padding:40px; }
+  h2 { font-weight:300; color:#888; margin:40px 0 16px; font-size:14px; letter-spacing:2px; text-transform:uppercase; }
+  .logos { display:flex; flex-wrap:wrap; gap:24px; }
+  .card { background:#141414; border:1px solid #222; border-radius:12px; padding:40px; display:flex; flex-direction:column; align-items:center; justify-content:center; min-width:280px; min-height:200px; }
+  .card.wide { min-width:400px; }
+  
+  /* Variant 1: Wave above */
+  .logo1 { text-align:center; }
+  .logo1 .wave { color:#c9a96e; font-size:28px; letter-spacing:3px; margin-bottom:4px; }
+  .logo1 .name { font-family:Georgia,serif; font-size:22px; letter-spacing:4px; color:#e8d5b0; text-transform:uppercase; }
+  .logo1 .tag { font-size:8px; letter-spacing:3px; color:#666; margin-top:6px; text-transform:uppercase; }
+  
+  /* Variant 2: Integrated tilde */
+  .logo2 { text-align:center; }
+  .logo2 .main { font-family:Georgia,serif; font-size:24px; letter-spacing:3px; color:#e8d5b0; }
+  .logo2 .main .tilde { color:#c9a96e; }
+  .logo2 .tag { font-size:8px; letter-spacing:3px; color:#666; margin-top:6px; text-transform:uppercase; }
+  
+  /* Variant 3: Horizontal with icon */
+  .logo3 { display:flex; align-items:center; gap:12px; }
+  .logo3 .icon { font-size:36px; line-height:1; }
+  .logo3 .text { text-align:left; }
+  .logo3 .name { font-family:Georgia,serif; font-size:20px; letter-spacing:3px; color:#e8d5b0; }
+  .logo3 .tag { font-size:8px; letter-spacing:2px; color:#666; }
+  
+  /* Variant 4: Minimalist wave mark */
+  .logo4 { text-align:center; }
+  .logo4 .mark { margin-bottom:8px; }
+  .logo4 svg { display:block; }
+  .logo4 .name { font-family:Georgia,serif; font-size:18px; letter-spacing:5px; color:#e8d5b0; text-transform:uppercase; }
+  .logo4 .tag { font-size:8px; letter-spacing:3px; color:#666; margin-top:6px; text-transform:uppercase; }
+  
+  /* Variant 5: Dark on light */
+  .card.light { background:#f5f0e8; border-color:#ddd; }
+  .light .name, .light .main { color:#1a1a1a; }
+  .light .tag { color:#999; }
+  .light .wave, .light .tilde { color:#8b6914; }
+  
+  label { display:block; font-size:11px; color:#555; margin-bottom:4px; letter-spacing:1px; }
+</style>
+</head>
+<body>
+
+<h2>Variant 1 — Wave Above (Primary)</h2>
+<div class="logos">
+  <div class="card">
+    <div class="logo1">
+      <div class="wave">~ ~ ~</div>
+      <div class="name">ONDAVAYU</div>
+      <div class="tag">where breath becomes wave</div>
+    </div>
+  </div>
+  <div class="card light">
+    <div class="logo1">
+      <div class="wave">~ ~ ~</div>
+      <div class="name" style="color:#1a1a1a">ONDAVAYU</div>
+      <div class="tag" style="color:#999">where breath becomes wave</div>
+    </div>
+  </div>
+</div>
+
+<h2>Variant 2 — Integrated Tilde</h2>
+<div class="logos">
+  <div class="card">
+    <div class="logo2">
+      <div class="main">onda<span class="tilde">~</span>vayu</div>
+      <div class="tag">by jasmin jenni</div>
+    </div>
+  </div>
+  <div class="card light">
+    <div class="logo2">
+      <div class="main" style="color:#1a1a1a">onda<span class="tilde">~</span>vayu</div>
+      <div class="tag" style="color:#999">by jasmin jenni</div>
+    </div>
+  </div>
+</div>
+
+<h2>Variant 3 — Icon + Text (Horizontal)</h2>
+<div class="logos">
+  <div class="card wide">
+    <div class="logo3">
+      <div class="icon">〰️</div>
+      <div class="text">
+        <div class="name">ONDAVAYU</div>
+        <div class="tag">SOMATIC BREATHWORK BY JASMIN JENNI</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>Variant 4 — Minimal Wave Mark (SVG)</h2>
+<div class="logos">
+  <div class="card">
+    <div class="logo4">
+      <div class="mark">
+        <svg width="60" height="30" viewBox="0 0 60 30">
+          <path d="M5 25 Q15 5 20 15 Q25 25 35 15 Q45 5 55 25" 
+                fill="none" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M10 25 Q20 5 25 15 Q30 25 40 15 Q50 5 60 25" 
+                fill="none" stroke="#c9a96e" stroke-width="1" stroke-opacity="0.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="name">ONDAVAYU</div>
+      <div class="tag">somatic breathwork</div>
+    </div>
+  </div>
+  <div class="card light">
+    <div class="logo4">
+      <div class="mark">
+        <svg width="60" height="30" viewBox="0 0 60 30">
+          <path d="M5 25 Q15 5 20 15 Q25 25 35 15 Q45 5 55 25" 
+                fill="none" stroke="#8b6914" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M10 25 Q20 5 25 15 Q30 25 40 15 Q50 5 60 25" 
+                fill="none" stroke="#8b6914" stroke-width="1" stroke-opacity="0.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="name" style="color:#1a1a1a">ONDAVAYU</div>
+      <div class="tag" style="color:#999">somatic breathwork</div>
+    </div>
+  </div>
+</div>
+
+<h2>Favicon / Social Icon</h2>
+<div class="logos">
+  <div class="card" style="min-width:120px; min-height:120px; border-radius:20px;">
+    <svg width="48" height="48" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="22" fill="none" stroke="#c9a96e" stroke-width="1"/>
+      <path d="M8 28 Q16 12 24 20 Q32 28 40 16" 
+            fill="none" stroke="#c9a96e" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M12 32 Q20 16 28 24 Q36 32 44 20" 
+            fill="none" stroke="#c9a96e" stroke-width="1" stroke-opacity="0.3" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div>
+
+</body>
+</html>
