@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#111; display:flex; flex-direction:column; align-items:center; padding:60px 20px; gap:48px; font-family:system-ui,sans-serif; }
+
+.card { width:800px; padding:60px 40px; border-radius:16px; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; }
+
+/* Variant 1 — Wave Above Primary */
+.v1 { background:#0a0a0a; }
+.v1 .wave-row { display:flex; gap:18px; margin-bottom:6px; }
+.v1 .wave-row span { color:#c9a96e; font-size:32px; font-family:'Georgia',serif; opacity:0.9; }
+.v1 .name { font-family:'Georgia',serif; font-size:38px; letter-spacing:7px; color:#e8d5b0; text-transform:uppercase; font-weight:400; }
+.v1 .tag { font-size:10px; letter-spacing:5px; color:#888; margin-top:10px; text-transform:uppercase; font-weight:300; }
+.v1 .line { width:60px; height:1px; background:#c9a96e; opacity:0.4; margin-top:24px; }
+
+/* Variant 2 — Integrated Tilde */
+.v2 { background:#0a0a0a; }
+.v2 .wordmark { font-family:'Georgia',serif; font-size:36px; letter-spacing:2px; }
+.v2 .wordmark .o { color:#e8d5b0; }
+.v2 .wordmark .tilde { color:#c9a96e; font-size:40px; margin:0 4px; }
+.v2 .wordmark .v { color:#e8d5b0; }
+.v2 .byline { font-size:10px; letter-spacing:4px; color:#666; margin-top:12px; text-transform:uppercase; }
+
+/* Variant 3 — Icon + Text */
+.v3 { background:#0a0a0a; flex-direction:row; gap:20px; }
+.v3 .icon-svg svg { display:block; }
+.v3 .text-col { display:flex; flex-direction:column; }
+.v3 .text-col .n { font-family:'Georgia',serif; font-size:28px; letter-spacing:5px; color:#e8d5b0; }
+.v3 .text-col .sub { font-size:8px; letter-spacing:3px; color:#666; margin-top:6px; text-transform:uppercase; }
+
+/* Variant 4 — Minimal Wave */
+.v4 { background:#0a0a0a; }
+.v4 svg { margin-bottom:20px; }
+.v4 .n { font-family:'Georgia',serif; font-size:26px; letter-spacing:6px; color:#e8d5b0; text-transform:uppercase; }
+.v4 .sub { font-size:9px; letter-spacing:3px; color:#777; margin-top:8px; text-transform:uppercase; }
+
+/* Variant 5 — Circle Icon */
+.v5 { background:#0a0a0a; }
+.v5 svg { margin-bottom:12px; }
+.v5 .n { font-family:'Georgia',serif; font-size:20px; letter-spacing:5px; color:#e8d5b0; text-transform:uppercase; }
+
+/* LIGHT MODE */
+.light { background:#f5f0e8; }
+.light .name, .light .n, .light .wordmark .o, .light .wordmark .v { color:#1a1a1a; }
+.light .tag, .light .byline, .light .sub { color:#999; }
+.light .wave-row span, .light .wordmark .tilde { color:#8b6914; }
+.light .line { background:#8b6914; }
+
+.label { color:#555; font-size:11px; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; position:absolute; top:20px; left:24px; }
+</style>
+</head>
+<body>
+
+<!-- V1 Dark -->
+<div class="card v1">
+  <span class="label">V1 · PRIMARY (Dark)</span>
+  <div class="wave-row"><span>~</span><span>~</span><span>~</span></div>
+  <div class="name">ONDAVAYU</div>
+  <div class="tag">where breath becomes wave</div>
+  <div class="line"></div>
+</div>
+
+<!-- V1 Light -->
+<div class="card v1 light">
+  <span class="label">V1 · PRIMARY (Light)</span>
+  <div class="wave-row"><span>~</span><span>~</span><span>~</span></div>
+  <div class="name">ONDAVAYU</div>
+  <div class="tag">where breath becomes wave</div>
+  <div class="line"></div>
+</div>
+
+<!-- V2 Dark -->
+<div class="card v2">
+  <span class="label">V2 · INTEGRATED TILDE (Dark)</span>
+  <div class="wordmark">
+    <span class="o">onda</span><span class="tilde">~</span><span class="v">vayu</span>
+  </div>
+  <div class="byline">by jasmin jenni</div>
+</div>
+
+<!-- V2 Light -->
+<div class="card v2 light">
+  <span class="label">V2 · INTEGRATED TILDE (Light)</span>
+  <div class="wordmark">
+    <span class="o" style="color:#1a1a1a">onda</span><span class="tilde" style="color:#8b6914">~</span><span class="v" style="color:#1a1a1a">vayu</span>
+  </div>
+  <div class="byline" style="color:#999">by jasmin jenni</div>
+</div>
+
+<!-- V3 Dark -->
+<div class="card v3">
+  <span class="label">V3 · ICON + TEXT (Dark)</span>
+  <div class="icon-svg">
+    <svg width="80" height="40" viewBox="0 0 80 40">
+      <path d="M5 28 Q20 8 25 18 Q30 28 40 18 Q50 8 55 18 Q60 28 75 12" fill="none" stroke="#c9a96e" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M10 32 Q25 12 30 22 Q35 32 45 22 Q55 12 60 22 Q65 32 80 16" fill="none" stroke="#c9a96e" stroke-width="1" stroke-opacity="0.35" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="text-col">
+    <div class="n">ONDAVAYU</div>
+    <div class="sub">SOMATIC BREATHWORK BY JASMIN JENNI</div>
+  </div>
+</div>
+
+<!-- V4 Dark -->
+<div class="card v4">
+  <span class="label">V4 · MINIMAL WAVE (Dark)</span>
+  <svg width="240" height="60" viewBox="0 0 240 60">
+    <defs>
+      <linearGradient id="wg" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.2"/>
+        <stop offset="50%" stop-color="#c9a96e" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#c9a96e" stop-opacity="0.2"/>
+      </linearGradient>
+    </defs>
+    <path d="M20 35 Q60 10 80 20 Q100 30 120 20 Q140 10 160 20 Q180 30 220 15" fill="none" stroke="url(#wg)" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M30 42 Q70 18 90 28 Q110 38 130 28 Q150 18 170 28 Q190 38 230 22" fill="none" stroke="#c9a96e" stroke-width="0.8" stroke-opacity="0.25" stroke-linecap="round"/>
+  </svg>
+  <div class="n">ONDAVAYU</div>
+  <div class="sub">somatic breathwork</div>
+</div>
+
+<!-- V5 Dark -->
+<div class="card v5">
+  <span class="label">V5 · FAVICON / ICON (Dark)</span>
+  <svg width="120" height="120" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="54" fill="none" stroke="#c9a96e" stroke-width="1.5"/>
+    <path d="M28 68 Q48 38 56 48 Q64 58 76 48 Q88 38 96 52" fill="none" stroke="#c9a96e" stroke-width="2" stroke-linecap="round"/>
+    <path d="M32 74 Q52 44 60 54 Q68 64 80 54 Q92 44 100 58" fill="none" stroke="#c9a96e" stroke-width="1" stroke-opacity="0.3" stroke-linecap="round"/>
+  </svg>
+  <div class="n">ONDAVAYU</div>
+</div>
+
+</body>
+</html>
