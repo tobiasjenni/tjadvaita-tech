@@ -130,3 +130,10 @@ body:not(.practice-shell) { background:#0c0e0c; }
  .footer-grid { gap:28px; }
 }
 @media(prefers-reduced-motion:reduce) { .study-card:hover { transform:none; } }
+
+.site-menu .menu-links a[data-practice-link="play"] { background:#302b3b; border-color:#655571; }
+.site-menu .menu-links a[data-practice-link="play"]::after { color:#cfc3db; }
+.study-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.study-card:nth-child(2) { background:linear-gradient(135deg,#2e3023,#171c15); border-color:#53553d; }
+.study-card:last-child { background:linear-gradient(135deg,#302938,#17151e); border-color:#574661; }
+@media(max-width:900px) { .study-grid { grid-template-columns:1fr; } }
