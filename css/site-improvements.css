@@ -52,7 +52,7 @@ body.menu-open > nav, body.menu-open .navbar { backdrop-filter: none; -webkit-ba
  .nav-list.mobile-open, .nav-links.mobile-open { background: #080809; }
 }
 /* Longer translated labels switch to the compact menu before they wrap. */
-@media (max-width:1100px) {
+@media (max-width: 1280px) {
  .nav-list,.nav-links { display:none; }
  .hamburger { display:flex; }
  .nav-list.mobile-open,.nav-links.mobile-open { display:flex; position:fixed; z-index:10000; inset:0; height:100dvh; background:#080809; flex-direction:column; flex-wrap:nowrap; align-items:center; justify-content:flex-start; overflow-y:auto; gap:6px; padding:78px 24px 28px; }

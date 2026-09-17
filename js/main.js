@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const menu = document.getElementById('navList') || document.getElementById('navLinks');
   const languages = document.querySelector('.lang-switch');
   if (toggle && menu) {
-    const mobile = window.matchMedia('(max-width: 1100px)');
+    const mobile = window.matchMedia('(max-width: 1280px)');
     const marker = document.createComment('language switch position');
     languages?.before(marker);
     const close = document.createElement('button');
