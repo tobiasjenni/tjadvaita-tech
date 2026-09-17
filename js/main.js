@@ -1,117 +1,77 @@
-// TJ Advaita — Main JS
-document.addEventListener('DOMContentLoaded', function() {
-
-  // ═══ NAV SCROLL STATE ═══
+// Shared navigation for the homepage and both profiles.
+document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.getElementById('navbar');
-  let ticking = false;
-
-  function updateNav() {
-    if (window.scrollY > 60) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
+  if (navbar) {
+    const update = () => navbar.classList.toggle('scrolled', window.scrollY > 60);
+    window.addEventListener('scroll', update, {passive: true});
+    update();
   }
-
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      window.requestAnimationFrame(function() {
-        updateNav();
-        ticking = false;
-      });
-      ticking = true;
+  const toggle = document.getElementById('hamburger');
+  const menu = document.getElementById('navList') || document.getElementById('navLinks');
+  const languages = document.querySelector('.lang-switch');
+  if (toggle && menu) {
+    const mobile = window.matchMedia('(max-width: 1100px)');
+    const marker = document.createComment('language switch position');
+    languages?.before(marker);
+    const close = document.createElement('button');
+    close.type = 'button'; close.className = 'mobile-close'; close.textContent = '×';
+    const closeItem = document.createElement(menu.tagName === 'UL' ? 'li' : 'div');
+    closeItem.append(close);
+    const languageItem = document.createElement(menu.tagName === 'UL' ? 'li' : 'div');
+    const background = [...document.querySelectorAll('main, body > footer, .nav-logo')];
+    let priorInert = [], oldOverflow = '';
+    toggle.setAttribute('aria-controls', menu.id);
+    toggle.setAttribute('aria-expanded', 'false');
+    function closeMenu(restoreFocus = true) {
+      if (!menu.classList.contains('mobile-open')) return;
+      menu.classList.remove('mobile-open'); toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open'); document.body.style.overflow = oldOverflow;
+      priorInert.forEach(([element, inert]) => element.inert = inert);
+      if (languages && languageItem.contains(languages)) marker.after(languages);
+      closeItem.remove(); languageItem.remove();
+      if (restoreFocus) toggle.focus();
     }
-  });
-
-  updateNav();
-
-  // ═══ HAMBURGER MENU ═══
-  const hamburger = document.getElementById('hamburger');
-  const navList = document.getElementById('navList') || document.getElementById('navLinks');
-  const langSwitch = document.getElementById('langSwitchHeader');
-
-  // Create ONE close button
-  const closeBtn = document.createElement('button');
-  closeBtn.className = 'mobile-close';
-  closeBtn.setAttribute('aria-label', 'Close menu');
-  closeBtn.innerHTML = '&#10005;';
-
-  function closeMenu() {
-    hamburger.classList.remove('active');
-    navList.classList.remove('mobile-open');
-    document.body.style.overflow = '';
-    document.body.classList.remove('menu-open');
-    if (closeBtn.parentNode) closeBtn.remove();
-    if (langSwitch && navList.contains(langSwitch)) {
-      document.querySelector('.nav-menu').appendChild(langSwitch);
-      langSwitch.style.display = '';
+    function openMenu() {
+      if (!mobile.matches) return;
+      oldOverflow = document.body.style.overflow;
+      priorInert = background.map(element => [element, element.inert]);
+      background.forEach(element => element.inert = true);
+      close.setAttribute('aria-label', ({de:'Menü schließen',ru:'Закрыть меню'})[document.documentElement.lang] || 'Close menu');
+      menu.prepend(closeItem);
+      if (languages && !menu.contains(languages)) { languageItem.append(languages); menu.append(languageItem); }
+      menu.classList.add('mobile-open'); toggle.classList.add('active');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('menu-open'); document.body.style.overflow = 'hidden';
+      close.focus();
     }
-  }
-
-  function openMenu() {
-    hamburger.classList.add('active');
-    navList.classList.add('mobile-open');
-    document.body.style.overflow = 'hidden';
-    document.body.classList.add('menu-open');
-    navList.insertBefore(closeBtn, navList.firstChild);
-    if (langSwitch) {
-      navList.appendChild(langSwitch);
-      langSwitch.style.display = 'flex';
-    }
-  }
-
-  closeBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    closeMenu();
-  });
-
-  if (hamburger && navList) {
-    hamburger.addEventListener('click', function(e) {
-      e.stopPropagation();
-      navList.classList.contains('mobile-open') ? closeMenu() : openMenu();
+    toggle.addEventListener('click', () => menu.classList.contains('mobile-open') ? closeMenu() : openMenu());
+    close.addEventListener('click', () => closeMenu());
+    menu.addEventListener('click', event => {
+      if (event.target === menu || event.target.closest('a')) closeMenu();
     });
-
-    navList.addEventListener('click', function(e) {
-      if (e.target === navList) closeMenu();
-    });
-
-    navList.querySelectorAll('.nav-link').forEach(function(link) {
-      link.addEventListener('click', closeMenu);
-    });
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && navList.classList.contains('mobile-open')) closeMenu();
-    });
-  }
-
-  // ═══ SCROLL REVEAL (IntersectionObserver) ═══
-  const revealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        revealObserver.unobserve(entry.target);
+    document.addEventListener('keydown', event => {
+      if (!menu.classList.contains('mobile-open')) return;
+      if (event.key === 'Escape') { event.preventDefault(); closeMenu(); }
+      if (event.key === 'Tab') {
+        const items = [...menu.querySelectorAll('a[href],button:not([disabled])')].filter(el => el.getClientRects().length);
+        const first = items[0], last = items.at(-1);
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
       }
     });
-  }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -40px 0px'
-  });
-
-  document.querySelectorAll('.reveal').forEach(function(el) {
-    revealObserver.observe(el);
-  });
-
-  // ═══ SMOOTH SCROLL FOR ANCHORS ═══
-  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function(e) {
-      var targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      var target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    mobile.addEventListener('change', () => { if (!mobile.matches) closeMenu(false); });
+  }
+  // Reading and anchor navigation work even when scripting is unavailable.
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.remove('reveal-pending'); observer.unobserve(entry.target); }
+    }), {threshold: 0.05});
+    document.querySelectorAll('.reveal').forEach(element => {
+      if (element.getBoundingClientRect().top > window.innerHeight) {
+        element.classList.add('reveal-pending'); observer.observe(element);
       }
     });
-  });
-
+  }
 });
+
