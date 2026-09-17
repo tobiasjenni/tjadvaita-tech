@@ -198,28 +198,36 @@
 
 </style>
   <script src="js/translations_v5.js"></script>
-  <script src="js/i18nv2.js" defer></script>
+<script src="js/translations-site.js?v=1"></script>
+  <script src="js/i18nv2.js?v=3" defer></script>
+<link rel="canonical" href="https://tjadvaita.tech/julia.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/site-improvements.css?v=1">
+<noscript><style>.navbar,body>nav{position:relative;height:auto;flex-wrap:wrap;padding:16px}.nav-menu{flex-wrap:wrap}.nav-list,.nav-links{display:flex;position:static;flex-wrap:wrap;gap:12px}.hamburger,.lang-switch{display:none}</style></noscript>
 </head>
 <body>
+<a class="skip-link" href="#main-content" data-i18n="skip_content">Skip to content</a>
   <nav style="display:flex;justify-content:space-between;align-items:center">
-    <span class="nav-logo">TJ Advaita</span>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
+    <a class="nav-logo" href="/">TJ Advaita</a>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-controls="navLinks" aria-expanded="false">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
-    <div class="nav-links" id="navLinks" style="display:flex;align-items:center;gap:16px">
-      <a href="/#about" class="nav-link" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none">About</a>
-      <a href="/#teachings" class="nav-link" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none">Teachings</a>
+    <div class="nav-links" id="navLinks">
+      <a href="/#about" class="nav-link" data-i18n="about" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none">About</a>
+      <a href="/#teachings" class="nav-link" data-i18n="teachings" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none">Teachings</a>
       <a href="https://lila.tjadvaita.tech/lila" class="nav-link" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none">🎲 Lila</a>
-      <a href="/#contact" class="nav-link" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none">Contact</a>
+      <a href="/#practice" class="nav-link" data-i18n="practice_label">Study &amp; Practice</a>
+      <a href="/#contact" class="nav-link" data-i18n="contact" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none">Contact</a>
       <a href="/" class="nav-link" data-i18n="back_home" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none">← Back</a>
       <div class="lang-switch" id="lang-switch" style="display:flex;gap:2px">
-        <button data-lang="en" class="active" style="background:none;border:none;cursor:pointer;font-size:.55rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28);padding:3px 6px;border-radius:2px;transition:all .2s">EN</button>
-        <button data-lang="de" style="background:none;border:none;cursor:pointer;font-size:.55rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28);padding:3px 6px;border-radius:2px;transition:all .2s">DE</button>
-        <button data-lang="ru" style="background:none;border:none;cursor:pointer;font-size:.55rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28);padding:3px 6px;border-radius:2px;transition:all .2s">RU</button>
+        <button aria-label="English" data-lang="en" class="active" style="background:none;border:none;cursor:pointer;font-size:.55rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28);padding:3px 6px;border-radius:2px;transition:all .2s">EN</button>
+        <button aria-label="Deutsch" data-lang="de" style="background:none;border:none;cursor:pointer;font-size:.55rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28);padding:3px 6px;border-radius:2px;transition:all .2s">DE</button>
+        <button aria-label="Русский" data-lang="ru" style="background:none;border:none;cursor:pointer;font-size:.55rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28);padding:3px 6px;border-radius:2px;transition:all .2s">RU</button>
       </div>
     </div>
   </nav>
 
+  <main id="main-content" tabindex="-1">
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
@@ -365,10 +373,11 @@
     </div>
   </section>
 
-  <div class="profile-footer">
+</main>
+  <footer class="profile-footer">
     <a href="/" data-i18n="julia_return">← Return to TJ Advaita</a>
     <p data-i18n="julia_footer">Julia · Koh Phangan & Nepal</p>
-  </div>
-<script src="js/main.js"></script>
+  </footer>
+<script src="js/main.js?v=3"></script>
 </body>
 </html>

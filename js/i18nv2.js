@@ -1,43 +1,29 @@
-// ── I18N ENGINE ──
-(function(){
+// Shared language controls, with safe storage fallback.
+(() => {
   if (typeof T === 'undefined') return;
-
-  let currentLang = localStorage.getItem('lang') || 'en';
-
-  function apply(lang) {
-    currentLang = lang;
-    localStorage.setItem('lang', lang);
-
-    // Update lang switcher buttons
-    document.querySelectorAll('#langSwitchHeader button, .lang-switch button').forEach(b => {
-      b.classList.toggle('active', b.dataset.lang === lang);
+  function apply(language) {
+    const lang = ['en', 'de', 'ru'].includes(language) ? language : 'en';
+    try { localStorage.setItem('lang', lang); } catch { /* Storage may be unavailable. */ }
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-switch [data-lang]').forEach(button => {
+      const active = button.dataset.lang === lang;
+      button.classList.toggle('active', active); button.setAttribute('aria-pressed', String(active));
     });
-
-    // Named i18n elements
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.dataset.i18n.replace(/\./g, '_');
-      const t = T[lang] && T[lang][key];
-      if (t !== undefined) el.textContent = t;
-    });
-
-    // HTML-safe i18n (preserves child elements like <em>, <a>)
-    document.querySelectorAll('[data-i18n-html]').forEach(el => {
-      const key = el.dataset.i18nHtml.replace(/\./g, '_');
-      const t = T[lang] && T[lang][key];
-      if (t !== undefined) el.innerHTML = t;
-    });
-
-    // Update document lang
-    document.documentElement.lang = lang === 'ru' ? 'ru' : lang === 'de' ? 'de' : 'en';
+    for (const [attribute, html] of [['data-i18n', false], ['data-i18n-html', true]]) {
+      document.querySelectorAll(`[${attribute}]`).forEach(element => {
+        const key = element.getAttribute(attribute).replace(/\./g, '_');
+        const value = T[lang]?.[key] ?? T.en?.[key];
+        if (value !== undefined) { if (html) element.innerHTML = value; else element.textContent = value; }
+      });
+    }
+    document.getElementById('hamburger')?.setAttribute('aria-label', ({de:'Menü öffnen',ru:'Открыть меню'})[lang] || 'Open menu');
   }
-
-  // Click handler
-  document.getElementById('langSwitchHeader').addEventListener('click', e => {
-    const btn = e.target.closest('button');
-    if (!btn || !btn.dataset.lang) return;
-    apply(btn.dataset.lang);
-  });
-
-  // Apply saved or default language
-  apply(currentLang);
+  function init() {
+    document.querySelectorAll('.lang-switch').forEach(switcher => switcher.addEventListener('click', event => {
+      const button = event.target.closest('button[data-lang]'); if (button) apply(button.dataset.lang);
+    }));
+    let lang = 'en'; try { lang = localStorage.getItem('lang') || 'en'; } catch { /* Use English. */ }
+    apply(lang);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
