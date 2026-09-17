@@ -58,3 +58,8 @@ const siteLabels = {
  longevity:['Longevity','Langlebigkeit','Долголетие'], tantra:['Classical Tantra','Klassisches Tantra','Классическая тантра'], sanskrit:['Sanskrit','Sanskrit','Санскрит'], qigong:['Qigong','Qigong','Цигун'], hd:['Human Design','Human Design','Дизайн Человека'], gk:['Gene Keys','Gene Keys','Генные Ключи'], numerology:['Numerology','Numerologie','Нумерология'], palmistry:['Palmistry','Handlesen','Хиромантия'], permaculture:['Permaculture','Permakultur','Пермакультура'], ceremony:['Ceremony','Zeremonie','Церемония'], ancestral:['Ancestral Healing','Ahnenheilung','Родовое исцеление'], nursing:['Nursing','Pflege','Сестринское дело'], sacred:['Sacred Systems','Traditionelle Systeme','Традиционные системы'], short_tantra:['Tantra','Tantra','Тантра']
 };
 Object.entries(siteLabels).forEach(([key,values]) => ['en','de','ru'].forEach((lang,i)=>T[lang]['label_'+key]=values[i]));
+
+// Direct links to the continuously published practice apps.
+Object.assign(T.en, {nav_sutras:'Yoga Sutras', nav_mantra:'Mantra Timer'});
+Object.assign(T.de, {nav_sutras:'Yoga-Sutras', nav_mantra:'Mantra-Timer'});
+Object.assign(T.ru, {nav_sutras:'Йога-сутры', nav_mantra:'Таймер мантры'});
