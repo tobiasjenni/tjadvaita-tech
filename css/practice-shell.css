@@ -42,3 +42,5 @@
   .practice-dock a { flex:1; min-width:0; min-height:52px; padding:5px; flex-direction:column; gap:3px; font-size:10px; }
   .focus-mode .focus-toggle span { display:inline; }
 }
+
+.practice-shell[data-practice="lila"] { --shell-bg:#13121d; --shell-ink:#eee7f1; --shell-muted:#b9afc6; --shell-line:#3c344b; --shell-active:#342b43; color-scheme:dark; }
