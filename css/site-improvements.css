@@ -60,3 +60,73 @@ body.menu-open > nav, body.menu-open .navbar { backdrop-filter: none; -webkit-ba
  .nav-list.mobile-open .nav-link,.nav-links.mobile-open .nav-link { display:block; width:100%; font-family:'Cormorant Garamond',Georgia,serif; font-size:1.35rem !important; color:#e6e6e6 !important; letter-spacing:2px !important; text-align:center; padding:10px 0 !important; }
  .nav-list.mobile-open .lang-switch { justify-content:center; margin-top:24px; }
 }
+
+/* Shared navigation: a calm, readable sheet with clear practice destinations. */
+.site-menu { color-scheme:dark; box-sizing:border-box; width:min(480px, calc(100vw - 24px)); max-width:none; max-height:calc(100dvh - 24px); margin:auto 12px auto auto; padding:24px; border:1px solid #44463b; border-radius:22px; background:#191d19; color:#f1eddf; box-shadow:0 24px 100px #0006; font-family:Inter,system-ui,sans-serif; overflow:auto; overscroll-behavior:contain; }
+.site-menu:not([open]) { display:none; }
+.site-menu::backdrop { background:#080d0acc; backdrop-filter:blur(8px); }
+.site-menu * { box-sizing:border-box; }
+.site-menu .menu-top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.site-menu .menu-brand { display:flex; align-items:center; gap:10px; font:22px Georgia,serif !important; color:#e6cea0 !important; text-decoration:none; letter-spacing:0 !important; min-height:44px; }
+.site-menu .menu-close { position:static; display:grid; place-items:center; width:44px; height:44px; margin:0; border:1px solid #4d5045; border-radius:50%; background:transparent; color:#f1eddf; font:28px system-ui,sans-serif; cursor:pointer; }
+.site-menu .menu-intro { margin:28px 0 22px; }
+.site-menu .menu-intro p,.site-menu .menu-language p { margin:0 0 9px; color:#b9bea9; font:10px system-ui,sans-serif; letter-spacing:.15em; }
+.site-menu .menu-intro h2 { margin:0; font:36px/1.1 Georgia,serif; color:#f1eddf; letter-spacing:-.02em; }
+.site-menu .menu-links { display:grid !important; grid-template-columns:1fr 1fr; position:static !important; margin:0 !important; padding:0 !important; width:100%; height:auto !important; gap:8px !important; background:none !important; list-style:none; }
+.site-menu .menu-links > li { margin:0; padding:0; list-style:none; min-width:0; }
+.site-menu .menu-links a { display:flex !important; align-items:center; width:100%; min-height:48px; padding:12px 14px !important; margin:0; border:1px solid #353b32; border-radius:10px; font:14px/1.35 Inter,system-ui,sans-serif !important; letter-spacing:0 !important; text-transform:none !important; color:#e2e4d9 !important; text-decoration:none !important; transition:background .18s,border-color .18s; }
+.site-menu .menu-links a:hover { background:#2e342b; border-color:#6a735f; }
+.site-menu .menu-practice { grid-column:1/-1; }
+.site-menu .menu-links a[data-practice-link] { position:relative; display:block !important; min-height:86px; padding:16px 44px 16px 18px !important; background:#29382e; border-color:#4b6150; color:#f0efdf !important; font:23px/1.2 Georgia,serif !important; }
+.site-menu .menu-links a[data-practice-link="sit"] { background:#32332a; border-color:#646248; }
+.site-menu .menu-links a[data-practice-link]::before { content:'↗'; position:absolute; right:17px; top:18px; font:23px Georgia,serif; color:#d1c292; }
+.site-menu .menu-links a[data-practice-link]::after { content:attr(data-caption); display:block; margin-top:7px; font:11px/1.45 Inter,system-ui,sans-serif; color:#c4cebd; }
+.site-menu .menu-links a[aria-current="page"] { box-shadow:inset 3px 0 #e8ca90; }
+.site-menu .standalone-link { grid-column:1/-1; gap:12px; justify-content:space-between; margin-top:8px !important; font-size:12px !important; }
+.site-menu .standalone-link svg { width:16px; height:16px; }
+.site-menu .menu-language { margin-top:24px; padding-top:18px; border-top:1px solid #353b32; }
+.site-menu .lang-switch { display:flex; gap:8px; margin:0; }
+.site-menu .lang-switch button { flex:1; padding:8px 14px !important; border:1px solid #4c5246 !important; border-radius:8px !important; background:transparent !important; font:12px system-ui,sans-serif !important; min-height:44px; color:#ccd1c0 !important; }
+.site-menu .lang-switch button.active { background:#e3d2ac !important; border-color:#e3d2ac !important; color:#1d251e !important; text-decoration:none; }
+.site-menu :focus-visible { outline:2px solid #f0d5a4 !important; outline-offset:3px !important; }
+@media(max-width:640px) {
+ .site-menu { width:100%; max-height:100dvh; height:100dvh; margin:0; padding:20px max(20px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left)); border:0; border-radius:0; }
+ .site-menu .menu-intro { margin:22px 0; }
+ .site-menu .menu-intro h2 { font-size:34px; }
+}
+/* More comfortable reading and a clearer path into daily practice. */
+body:not(.practice-shell) { background:#0c0e0c; }
+.navbar { background:#10150feb; }
+.hero-actions a { min-height:46px; display:inline-flex; align-items:center; justify-content:center; border-radius:7px; font-size:12px; }
+.hero-actions a:first-child { color:#182118; background:#e1cea3; border-color:#e1cea3; }
+.study-grid { gap:20px; }
+.study-card { position:relative; border-radius:16px; background:linear-gradient(135deg,#202c23,#121a15); border-color:#3c5140; padding:32px; }
+.study-card:last-child { background:linear-gradient(135deg,#2e3023,#171c15); border-color:#53553d; }
+.study-card h3 { color:#efe7cd; font-size:30px; }
+.study-card p { color:#c2cbb9; font-size:15px; line-height:1.8; }
+.study-card .study-number { color:#bac6a8; font-size:10px; letter-spacing:.12em; }
+.study-card .cta-link { font:12px Inter,system-ui,sans-serif; color:#e5d3a8; min-height:44px; display:flex; align-items:center; }
+.study-card:hover { transform:translateY(-3px); border-color:#c5b380; box-shadow:0 14px 40px #0003; }
+@media(max-width:640px) {
+ .navbar { height:70px; display:flex; align-items:center; }
+ .nav-container { width:100%; padding-inline:20px; }
+ .nav-logo { font-size:17px !important; letter-spacing:3px !important; }
+ .navbar .lang-switch { display:none; }
+ .site-menu .lang-switch { display:flex; }
+ .hamburger { border:1px solid #59604a; border-radius:50%; padding:10px; width:44px; height:44px; }
+ .hero-content { padding-top:112px; }
+ .hero-section h1 { font-size:clamp(39px,10.5vw,56px); line-height:1.07; }
+ .hero-sub { font-size:12px; line-height:1.8; }
+ .hero-actions { gap:10px; margin-top:28px; }
+ .section { padding:62px 22px; }
+ .body-text,.card p { font-size:15px; line-height:1.85; }
+ .section-title { line-height:1.15; }
+ .study-grid { gap:14px; }
+ .study-card { padding:25px; gap:12px; }
+ .study-card h3 { font-size:28px; }
+ .portrait-bio { font-size:15px; line-height:1.85; }
+ .portrait-img { border-radius:14px; overflow:hidden; }
+ .mosaic { border-radius:12px; overflow:hidden; }
+ .footer-grid { gap:28px; }
+}
+@media(prefers-reduced-motion:reduce) { .study-card:hover { transform:none; } }
