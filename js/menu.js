@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const menu = document.getElementById('navList') || document.getElementById('navLinks');
   if (toggle && menu) {
     const copy = {
-      en:{title:'Find your practice.',label:'EXPLORE TJ ADVAITA',close:'Close menu',read:'Sanskrit, wisdom & commentary',sit:'A little stillness, every day',language:'LANGUAGE'},
-      de:{title:'Dein Raum für Praxis.',label:'TJ ADVAITA ENTDECKEN',close:'Menü schließen',read:'Sanskrit, Weisheit & Kommentare',sit:'Ein wenig Stille, jeden Tag',language:'SPRACHE'},
-      ru:{title:'Время для практики.',label:'ОТКРОЙТЕ TJ ADVAITA',close:'Закрыть меню',read:'Санскрит, мудрость и комментарии',sit:'Немного тишины каждый день',language:'ЯЗЫК'}
+      en:{title:'Find your practice.',label:'EXPLORE TJ ADVAITA',close:'Close menu',read:'Sanskrit, wisdom & commentary',sit:'A little stillness, every day',play:'The game of self-inquiry',language:'LANGUAGE'},
+      de:{title:'Dein Raum für Praxis.',label:'TJ ADVAITA ENTDECKEN',close:'Menü schließen',read:'Sanskrit, Weisheit & Kommentare',sit:'Ein wenig Stille, jeden Tag',play:'Das Spiel der Selbsterkenntnis',language:'SPRACHE'},
+      ru:{title:'Время для практики.',label:'ОТКРОЙТЕ TJ ADVAITA',close:'Закрыть меню',read:'Санскрит, мудрость и комментарии',sit:'Немного тишины каждый день',play:'Игра самопознания',language:'ЯЗЫК'}
     };
     const dialog = document.createElement('dialog');
     dialog.className = 'site-menu'; dialog.setAttribute('aria-labelledby','site-menu-title');
@@ -24,8 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuNodes = [...menu.childNodes];
     menu.classList.add('menu-links');
     for (const link of menu.querySelectorAll('a')) {
-      const pathname = new URL(link.href,location.href).pathname;
-      const practice = pathname === '/yoga-sutras/' ? 'read' : pathname === '/daily-mantra/' ? 'sit' : '';
+      const destination = new URL(link.href,location.href);
+      if (destination.origin !== location.origin) continue;
+      const pathname = destination.pathname;
+      const practice = pathname === '/yoga-sutras/' ? 'read' : pathname === '/daily-mantra/' ? 'sit' : pathname === '/lila/' ? 'play' : '';
       if (practice) {
         link.dataset.practiceLink = practice;
         (menu.tagName === 'UL' ? link.closest('li') : link).classList.add('menu-practice');

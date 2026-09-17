@@ -63,3 +63,8 @@ Object.entries(siteLabels).forEach(([key,values]) => ['en','de','ru'].forEach((l
 Object.assign(T.en, {nav_sutras:'Yoga Sutras', nav_mantra:'Mantra Timer'});
 Object.assign(T.de, {nav_sutras:'Yoga-Sutras', nav_mantra:'Mantra-Timer'});
 Object.assign(T.ru, {nav_sutras:'Йога-сутры', nav_mantra:'Таймер мантры'});
+
+/* Lila joins the live practice collection. */
+Object.assign(T.en, {practice_intro:'Study, meditate, or explore through play. Three spaces to return to at your own pace.',lila_meta:'03 · PLAY · SELF-INQUIRY',lila_title:'Lila — The Game of Life',lila_desc:'Explore the 72-cell game of self-inquiry. Bring an intention and follow the conversation at your own pace.',lila_cta:'Enter the game →'});
+Object.assign(T.de, {practice_intro:'Lerne, meditiere oder entdecke dich im Spiel. Drei Räume, zu denen du in deinem eigenen Tempo zurückkehren kannst.',lila_meta:'03 · SPIEL · SELBSTERKENNTNIS',lila_title:'Lila — Das Spiel des Lebens',lila_desc:'Entdecke das Spiel der Selbsterkenntnis mit 72 Feldern. Bring ein Anliegen mit und folge dem Gespräch in deinem eigenen Tempo.',lila_cta:'Zum Spiel →'});
+Object.assign(T.ru, {practice_intro:'Изучайте, медитируйте или исследуйте себя через игру. Три пространства, куда можно возвращаться в своём ритме.',lila_meta:'03 · ИГРА · САМОПОЗНАНИЕ',lila_title:'Лила — Игра жизни',lila_desc:'Откройте игру самопознания с 72 клетками. Приходите с намерением и следуйте за беседой в своём ритме.',lila_cta:'Начать игру →'});
