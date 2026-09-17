@@ -41,11 +41,13 @@
   "email": "tobias@tr4nsform.me"
 }
 </script>
-<link rel="preload" as="image" href="images/magic-land-ocean.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="images/julia-sunset.jpg" fetchpriority="high">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+<link rel="stylesheet" href="css/site-improvements.css?v=1">
+<noscript><style>.navbar,body>nav{position:relative;height:auto;flex-wrap:wrap;padding:16px}.nav-menu{flex-wrap:wrap}.nav-list,.nav-links{display:flex;position:static;flex-wrap:wrap;gap:12px}.hamburger,.lang-switch{display:none}</style></noscript>
 </head>
 <body>
-<a href="#about" class="skip-link">Skip to content</a>
+<a href="#main-content" class="skip-link" data-i18n="skip_content">Skip to content</a>
 
 <!-- NAV -->
 <nav class="navbar" id="navbar">
@@ -53,25 +55,26 @@
     <a href="/" class="nav-logo" style="font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:5px;color:var(--gold);text-decoration:none;text-transform:uppercase">TJ Advaita</a>
     <div class="nav-menu" style="display:flex;align-items:center;gap:0">
       <ul class="nav-list" id="navList">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#teachings" class="nav-link">Teachings</a></li>
-        <li><a href="#nepal" class="nav-link">Nepal</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="about">About</a></li>
+        <li><a href="#teachings" class="nav-link" data-i18n="teachings">Teachings</a></li>
+        <li><a href="#practice" class="nav-link" data-i18n="practice_label">Study &amp; Practice</a></li>
+        <li><a href="#nepal" class="nav-link" data-i18n="nepal">Nepal</a></li>
         <li><a href="https://lila.tjadvaita.tech/lila" class="nav-link">🎲 Lila</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="contact">Contact</a></li>
       </ul>
       <div class="lang-switch" id="langSwitchHeader">
         <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
         <button class="lang-btn" data-lang="de" aria-label="Deutsch">DE</button>
         <button class="lang-btn" data-lang="ru" aria-label="Русский">RU</button>
       </div>
-      <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0">
+      <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="navList" aria-expanded="false">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </div>
+      </button>
     </div>
   </div>
 </nav>
 
-<main>
+<main id="main-content" tabindex="-1">
 
 <!-- HERO -->
 <section class="hero-section" id="hero">
@@ -81,30 +84,31 @@
     <div class="hero-eyebrow"><span></span>TJ Advaita</div>
     <h1 data-i18n-html="hero.title">Ancient Wisdom &<br><em>Sacred Arts.</em></h1>
     <p class="hero-sub" data-i18n="hero.sub">Julia &amp; Tobias — Koh Phangan · Nepal</p>
+    <div class="hero-actions"><a href="#practice" data-i18n="practice_label">Study &amp; Practice</a><a href="#contact" data-i18n="contact_title">Reach Out</a></div>
   </div>
 </section>
 
 <!-- DISCIPLINES NAV -->
 <div class="disc-nav">
-  <span class="disc-item">Longevity</span><span class="disc-dot">·</span>
-  <span class="disc-item">Classical Tantra</span><span class="disc-dot">·</span>
-  <span class="disc-item">Sanskrit</span><span class="disc-dot">·</span>
-  <span class="disc-item">Qigong</span><span class="disc-dot">·</span>
-  <span class="disc-item">Human Design</span><span class="disc-dot">·</span>
-  <span class="disc-item">Gene Keys</span><span class="disc-dot">·</span>
-  <span class="disc-item">Numerology</span><span class="disc-dot">·</span>
-  <span class="disc-item">Palmistry</span><span class="disc-dot">·</span>
-  <span class="disc-item">Permaculture</span><span class="disc-dot">·</span>
-  <span class="disc-item">Ceremony</span><span class="disc-dot">·</span>
-  <span class="disc-item">Ancestral Healing</span>
+  <span class="disc-item" data-i18n="label_longevity">Longevity</span><span class="disc-dot">·</span>
+  <span class="disc-item" data-i18n="label_tantra">Classical Tantra</span><span class="disc-dot">·</span>
+  <span class="disc-item" data-i18n="label_sanskrit">Sanskrit</span><span class="disc-dot">·</span>
+  <span class="disc-item" data-i18n="label_qigong">Qigong</span><span class="disc-dot">·</span>
+  <span class="disc-item" data-i18n="label_hd">Human Design</span><span class="disc-dot">·</span>
+  <span class="disc-item" data-i18n="label_gk">Gene Keys</span><span class="disc-dot">·</span>
+  <span class="disc-item" data-i18n="label_numerology">Numerology</span><span class="disc-dot">·</span>
+  <span class="disc-item" data-i18n="label_palmistry">Palmistry</span><span class="disc-dot">·</span>
+  <span class="disc-item" data-i18n="label_permaculture">Permaculture</span><span class="disc-dot">·</span>
+  <span class="disc-item" data-i18n="label_ceremony">Ceremony</span><span class="disc-dot">·</span>
+  <span class="disc-item" data-i18n="label_ancestral">Ancestral Healing</span>
 </div>
 
 <!-- ABOUT / WHO WE ARE -->
 <section class="section" id="about">
   <div class="content">
     <p class="section-label reveal" data-i18n="about.label">Who We Are</p>
-    <h2 class="section-title reveal reveal-d1">Two paths.</h2>
-    <h2 class="section-title italic reveal reveal-d1">One vision.</h2>
+    <h2 class="section-title reveal reveal-d1" data-i18n="about_h2_1">Two paths.</h2>
+    <h2 class="section-title italic reveal reveal-d1" data-i18n="about_h2_em">One vision.</h2>
     <div class="divider reveal reveal-d2"></div>
     <p class="body-text reveal reveal-d2" data-i18n="about.p1">We're Tobias and Julia. A Swiss nurse and a teacher of ancient wisdom who met on the road, found each other in ceremony, and at some point decided to stop travelling and start building.</p>
     <p class="body-text reveal reveal-d2" style="margin-top:12px" data-i18n="about.p2">We split our time between Koh Phangan and Nepal. Our roots are in Switzerland and Russia — but our home is wherever the work takes us.</p>
@@ -121,10 +125,10 @@
       <h2 class="section-title" style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:12px">Julia</h2>
       <p class="portrait-bio" data-i18n="portraits.julia.bio">Sanskrit, Qigong, classical Tantra. Years in Nepal and India. Ancient Russian healing from her own lineage. She doesn't teach what she's read — she teaches what she's lived.</p>
       <div class="tags">
-        <span class="tag">Tantra</span>
-        <span class="tag">Qigong</span>
-        <span class="tag">Sanskrit</span>
-        <span class="tag">Ceremony</span>
+        <span class="tag" data-i18n="label_short_tantra">Tantra</span>
+        <span class="tag" data-i18n="label_qigong">Qigong</span>
+        <span class="tag" data-i18n="label_sanskrit">Sanskrit</span>
+        <span class="tag" data-i18n="label_ceremony">Ceremony</span>
       </div>
       <a href="julia.html" class="cta-link" data-i18n="portraits.cta">Full Profile →</a>
     </div>
@@ -138,10 +142,10 @@
       <h2 class="section-title" style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:12px">Tobias</h2>
       <p class="portrait-bio" data-i18n="portraits.tobias.bio">Twenty years in medicine. A decade in holistic health and longevity. Plant medicine, permaculture, Human Design — and a background in Fintech and AI.</p>
       <div class="tags">
-        <span class="tag">Nursing</span>
-        <span class="tag">Longevity</span>
-        <span class="tag">Sacred Systems</span>
-        <span class="tag">Permaculture</span>
+        <span class="tag" data-i18n="label_nursing">Nursing</span>
+        <span class="tag" data-i18n="label_longevity">Longevity</span>
+        <span class="tag" data-i18n="label_sacred">Sacred Systems</span>
+        <span class="tag" data-i18n="label_permaculture">Permaculture</span>
       </div>
       <a href="tobias.html" class="cta-link" data-i18n="portraits.cta">Full Profile →</a>
     </div>
@@ -152,7 +156,7 @@
 <section class="section" id="teachings">
   <div class="content">
     <p class="section-label center reveal" style="text-align:center" data-i18n="teachings.label">Sacred Systems</p>
-    <h2 class="section-title center reveal reveal-d1" style="text-align:center" data-i18n="teachings.title">Four maps of consciousness.<br><span class="italic" style="font-style:italic;color:var(--gold);font-weight:500">One destination.</span></h2>
+    <h2 class="section-title center reveal reveal-d1" style="text-align:center" data-i18n-html="teachings.title">Four maps of consciousness.<br><span class="italic" style="font-style:italic;color:var(--gold);font-weight:500">One destination.</span></h2>
     <div class="divider reveal reveal-d2" style="margin:16px auto 32px"></div>
     <p class="body-text reveal reveal-d2" style="text-align:center;margin:0 auto 32px" data-i18n="teachings.subtitle">We offer four sacred systems — each one a lens through which to understand yourself more deeply.</p>
     <div class="card-grid">
@@ -176,11 +180,34 @@
   </div>
 </section>
 
+<!-- STUDY AND PRACTICE -->
+<section class="section" id="practice" aria-labelledby="practice-title">
+  <div class="content">
+    <p class="section-label" data-i18n="practice_label">Study &amp; Practice</p>
+    <h2 class="section-title study-heading" id="practice-title" data-i18n="practice_title">A little wisdom. A daily practice.</h2>
+    <p class="body-text" data-i18n="practice_intro">Explore the teachings, then make time to sit. Two spaces to return to at your own pace.</p>
+    <div class="card-grid study-grid">
+      <a class="card study-card" href="yoga-sutras/">
+        <span class="study-number" data-i18n="sutras_meta">01 · STUDY · SANSKRIT &amp; ENGLISH</span>
+        <h3 data-i18n="sutras_title">Patañjali’s Yoga Sutras</h3>
+        <p data-i18n="sutras_desc">Explore all 196 study entries across four chapters, with Sanskrit, explanations and historical commentary.</p>
+        <span class="cta-link" data-i18n="sutras_cta">Open the sutra reader →</span>
+      </a>
+      <a class="card study-card" href="daily-mantra/">
+        <span class="study-number" data-i18n="mantra_meta">02 · PRACTICE · ENGLISH</span>
+        <h3 data-i18n="mantra_title">Daily Mantra Meditation</h3>
+        <p data-i18n="mantra_desc">A quiet timer for Baba Nam Kevalam. Begin with six minutes, with an optional opening voice, soft gong and ambient sound.</p>
+        <span class="cta-link" data-i18n="mantra_cta">Begin your meditation →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ROOTS -->
 <section class="section" id="roots">
   <div class="content">
     <p class="section-label center reveal" style="text-align:center" data-i18n="roots.label">Roots</p>
-    <h2 class="section-title center reveal reveal-d1" style="text-align:center" data-i18n="roots.title">Apache <span style="font-weight:200;color:var(--text-dim)">·</span> Tatar <span style="font-weight:200;color:var(--text-dim)">·</span> Ancient Lines</h2>
+    <h2 class="section-title center reveal reveal-d1" style="text-align:center" data-i18n-html="roots.title">Apache <span style="font-weight:200;color:var(--text-dim)">·</span> Tatar <span style="font-weight:200;color:var(--text-dim)">·</span> Ancient Lines</h2>
     <div class="divider reveal reveal-d2" style="margin:16px auto 32px"></div>
     <div class="roots-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
       <div class="reveal reveal-d2">
@@ -314,6 +341,8 @@
         <h4 data-i18n="footer.nav">Navigation</h4>
         <a href="#about" data-i18n="nav.about">About</a>
         <a href="#teachings" data-i18n="nav.teachings">Teachings</a>
+        <a href="yoga-sutras/" data-i18n="sutras_title">Patañjali’s Yoga Sutras</a>
+        <a href="daily-mantra/" data-i18n="mantra_title">Daily Mantra Meditation</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </div>
       <div class="footer-col">
@@ -333,7 +362,8 @@
 </footer>
 
 <script src="js/translations_v5.js?v=2"></script>
-<script src="js/i18nv2.js"></script>
-<script src="js/main.js"></script>
+<script src="js/translations-site.js?v=1"></script>
+<script src="js/i18nv2.js?v=3"></script>
+<script src="js/main.js?v=3"></script>
 </body>
 </html>
