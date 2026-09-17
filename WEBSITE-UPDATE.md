@@ -15,6 +15,12 @@ Timer storage now belongs to the original app inside the frame. Browsers may par
 
 The source assets copied in the first release remain as an inactive archive (sutras cbff7d7, timer 8f77e6c), including attribution and notes. The live wrappers do not load them; edit the upstream repositories for app changes. Do not replace the wrappers with an upstream index.html, which would disconnect the live integration.
 
+## Navigation and mobile presentation
+
+`js/menu.js` and `css/site-improvements.css` provide the shared modal menu. Native dialog behavior keeps keyboard focus inside the menu and closes it with Escape. The original language controls are moved temporarily into the menu, keeping their listeners and restoring their position on close.
+
+The live wrappers use `css/practice-shell.css` and `js/practice-shell.js`: coordinated colour themes, a persistent Home / Yoga Sutras / Meditate dock, and focus mode. Focus mode resizes the existing iframe without changing its source or restarting it. The external full-page link is inside the menu. Active-page links close the menu or remain in place instead of reloading an active practice. App functionality and ongoing updates remain owned by the original repositories.
+
 ## Validation
 
 Run the timer regression suite in its original repository with `npm test` (Node 20+). The tests retained here only cover the archived copy. No build step is required for TJ Advaita. Serve the repository root with a static HTTP server for local preview. The host must serve folder index.html files and redirect folder paths without a trailing slash. Check desktop/mobile menus on the homepage and profiles, both embedded apps, and the full-page fallback links.
