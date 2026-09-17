@@ -1,0 +1,137 @@
+[
+  {
+    "id": "gretil-agase-1904",
+    "author": "Patañjali (traditional attribution); Kāśinātha Śāstrī Āgāśe, editor; Philipp A. Maas, electronic transcription and proofreading",
+    "title": "Yogasūtra, GRETIL e-text based on Āgāśe 1904",
+    "url": "https://gretil.sub.uni-goettingen.de/gretil/corpustei/transformations/html/sa_pataJjali-yogasUtra.htm",
+    "retrieved": "2026-09-15",
+    "included": "All 195 numbered Sanskrit entries; IAST original; generated Devanagari",
+    "license": "CC BY-NC-SA 4.0 for this e-text",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  },
+  {
+    "id": "vivekananda",
+    "author": "Swami Vivekananda",
+    "title": "Raja-Yoga: Patanjali’s Yoga Aphorisms (original book 1896), Complete Works online transcription",
+    "urls": [
+      "https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_1/Raja-Yoga/Patanjali%27s_Yoga_Aphorisms_-_Concentration%3A_Its_Spiritual_Uses",
+      "https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_1/Raja-Yoga/Patanjali%27s_Yoga_Aphorisms_-_Concentration%3A_Its_Practice",
+      "https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_1/Raja-Yoga/Patanjali%27s_Yoga_Aphorisms_-_Powers",
+      "https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_1/Raja-Yoga/Patanjali%27s_Yoga_Aphorisms_-_Independence"
+    ],
+    "included": "195 numbered translations and their online prose commentaries; chapter footnotes; supplemental Sanskrit at project 3.22",
+    "rights": "Historical original public domain; online transcription has errors; no modern editorial material is claimed as our own"
+  },
+  {
+    "id": "woods",
+    "author": "James Haughton Woods",
+    "title": "The Yoga-System of Patañjali (1914; online excerpt headed 1927)",
+    "url": "https://www.amsi.ge/pat/ys_woods.html",
+    "scan_url": "https://www.rarebooksocietyofindia.org/book_archive/196174216674_10153338117011675.pdf",
+    "included": "All 195 sutra translations from the online excerpt; not the complete Vyāsa and Vācaspati commentaries in the book",
+    "rights": "Historical original public domain; excerpt contains OCR errors"
+  },
+  {
+    "id": "johnston",
+    "author": "Charles Johnston",
+    "title": "The Yoga Sutras of Patanjali (revised edition 1917; first book edition 1912)",
+    "url": "https://theosophylib.com/cj/yoga-sutras-1909/",
+    "included": "195 translations, commentary and four book introductions in the online transcription",
+    "rights": "Historical original public domain; distinctive Theosophical interpretation"
+  },
+  {
+    "id": "rama-prasada",
+    "author": "Rāma Prasāda; Vyāsa; Vācaspati Miśra",
+    "title": "Yoga Sutras with Vyāsa’s Bhāṣya and Vācaspati Miśra’s Tattvavaiśāradī, online 1924 edition",
+    "url": "https://www.wisdomlib.org/hinduism/book/yoga-sutras-with-commentaries",
+    "included": "45 source-number references with separately extracted Vyāsa commentary from available online pages; remaining references linked only. The complete Rāma Prasāda edition is not collected."
+  },
+  {
+    "id": "sanskritdocuments",
+    "title": "Pātañjalayogasūtrāṇi, Sanskrit Documents",
+    "url": "https://sanskritdocuments.org/doc_yoga/yogasuutra.html",
+    "included": "Comparison link only; not a source for the main corpus"
+  },
+  {
+    "id": "sidersky-alba-video",
+    "author": "Andrey Sidersky, interviewed by Anastasia Alba",
+    "title": "АНДРЕЙ СИДЕРСКИЙ О ВОСЬМЕРИЧНОМ ПУТИ ЙОГИ",
+    "url": "https://www.youtube.com/watch?v=2wjdGw-LnVI",
+    "included": "Original English discussion map and provisional sutra links; no reproduced full transcript",
+    "rights": "Modern copyrighted video; quotations and republication require separate consideration",
+    "review_basis": "Entire available Russian automatic transcript read; audiovisual content not reviewed in full"
+  },
+  {
+    "id": "larson-research",
+    "author": "Gerald James Larson",
+    "title": "Yoga, Preface and Introduction",
+    "url": "https://geraldjameslarson.com/pdf/PrefaceandIntroduction_1-35.pdf",
+    "included": "Further research link only; no reproduced chapter"
+  },
+  {
+    "id": "vyasa-jha-1907",
+    "author": "Vyāsa, traditional attribution; translated with additional notes by Ganganatha Jha",
+    "title": "The Yoga-Darśana: the Sutras of Patañjali with the Bhāṣya of Vyāsa (1907)",
+    "url": "https://archive.org/details/yogadaranasutra00patagoog",
+    "alternate_url": "https://archive.org/details/pli.kerala.rare.28327",
+    "catalog_url": "https://onlinebooks.library.upenn.edu/webbin/book/lookupid?key=ha100339741",
+    "included": "195 indexed historical source passages, unproofread OCR, including Jha’s labeled Notes",
+    "rights": "Public-domain historical work; scan provenance retained",
+    "editorial_note": "Harvard OCR lacks printed page 86; the affected span 2.34–2.37 was supplied from the independent Kerala scan. Heading recognition corrected; running page headers removed where identifiable. Other OCR errors remain."
+  },
+  {
+    "id": "taimni",
+    "author": "I. K. Taimni",
+    "title": "The Science of Yoga (1961)",
+    "url": "https://redwheelweiser.com/book/science-of-yoga-9780835600231/",
+    "catalog_url": "https://books.google.com/books?id=_15bBgAAQBAJ",
+    "consulted_copy_url": "https://elibraryofyoga.com/bitstreams/3b1d8658-6bc5-4d43-a3a3-7efe4d9ec632/download",
+    "included": "Bibliography, coverage findings, and two brief original research summaries; no reproduced book",
+    "rights": "Copyrighted; full text not redistributed"
+  },
+  {
+    "id": "satchidananda",
+    "author": "Sri Swami Satchidananda",
+    "title": "The Yoga Sutras of Patanjali: Translation and Commentary (first published 1978)",
+    "url": "https://integralyoga.org/founder/",
+    "coverage_url": "https://integralyogamagazine.org/the-yoga-sutras-of-patanjali-on-audible/",
+    "rights_url": "https://integralyoga.org/services/",
+    "included": "Bibliography and short summaries of a separately published author article, explicitly labeled as such; book commentary not reproduced",
+    "rights": "Copyrighted; full text not redistributed"
+  },
+  {
+    "id": "iyengar",
+    "author": "B. K. S. Iyengar",
+    "title": "Light on the Yoga Sutras of Patanjali (1993; HarperCollins ebook 2012)",
+    "url": "https://play.google.com/store/books/details/B_K_S_Iyengar_Light_on_the_Yoga_Sutras_of_Patanjal?id=pqKjOng41m0C",
+    "coverage_url": "https://www.overdrive.com/media/978649/light-on-the-yoga-sutras-of-patanjali",
+    "included": "Bibliography and coverage findings; individual commentary text not included",
+    "rights": "Copyrighted; full text not redistributed"
+  },
+  {
+    "id": "bryant",
+    "author": "Edwin F. Bryant",
+    "title": "The Yoga Sutras of Patañjali: A New Edition, Translation, and Commentary (2009)",
+    "url": "https://us.macmillan.com/books/9780865477360/theyogasutrasofpatanyjali/",
+    "author_url": "https://sites.rutgers.edu/edwin-bryant/yogasutrasbook/",
+    "contents_url": "https://sites.rutgers.edu/edwin-bryant/wp-content/uploads/sites/169/2019/11/yogasutras-contents.pdf",
+    "included": "Bibliography, coverage findings and short summaries from Bryant’s separate IEP article; book commentary not reproduced",
+    "rights": "Copyrighted; full text not redistributed"
+  },
+  {
+    "id": "bryant-iep",
+    "author": "Edwin Bryant",
+    "title": "Yoga Sutras of Patanjali, Internet Encyclopedia of Philosophy",
+    "url": "https://iep.utm.edu/yoga/",
+    "included": "Brief original summaries at selected sutras, identified as article-based; count of 195 stated by the author",
+    "rights": "Copyrighted article; no substantial reproduction"
+  },
+  {
+    "id": "satchidananda-practice-article",
+    "author": "Sri Swami Satchidananda",
+    "title": "How to Succeed in Yoga: Practice",
+    "url": "https://integralyogamagazine.org/how-to-succeed-in-yoga-practice/",
+    "included": "Two brief original summaries at 1.2 and 1.12; not presented as extracted book commentary",
+    "rights": "Copyrighted article; no substantial reproduction"
+  }
+]
