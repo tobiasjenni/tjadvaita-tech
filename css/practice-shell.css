@@ -1,0 +1,44 @@
+.practice-shell { --shell-bg:#f8f6ef; --shell-ink:#373c33; --shell-muted:#666c5d; --shell-line:#dddccf; --shell-active:#e6eadc; color-scheme:light; margin:0; height:100vh; height:100dvh; display:flex; flex-direction:column; background:var(--shell-bg); color:var(--shell-ink); font-family:system-ui,sans-serif; }
+.practice-shell[data-practice="daily-mantra"] { --shell-bg:#112f33; --shell-ink:#f0eddf; --shell-muted:#b3c8c6; --shell-line:#355357; --shell-active:#2b4b4e; color-scheme:dark; }
+.practice-shell * { box-sizing:border-box; }
+.practice-shell a { color:inherit; text-decoration:none; }
+.practice-shell svg { width:20px; height:20px; flex-shrink:0; }
+.practice-shell button { font:inherit; cursor:pointer; }
+.practice-header { flex:none; height:84px; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:12px max(24px,env(safe-area-inset-right)) 12px max(24px,env(safe-area-inset-left)); border-bottom:1px solid var(--shell-line); }
+.practice-brand { display:flex; align-items:center; gap:10px; font:21px Georgia,serif; min-height:44px; }
+.brand-symbol { font-size:34px; font-weight:400; }
+.brand-caption { display:block; margin-top:5px; font:9px system-ui,sans-serif; letter-spacing:.15em; color:var(--shell-muted); }
+.practice-context { text-align:center; }
+.practice-context > span { font-size:11px; color:var(--shell-muted); }
+.practice-context h1 { margin:3px 0 0; font:23px Georgia,serif; }
+.practice-actions { display:flex; gap:8px; }
+.practice-actions button { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:10px 14px; background:transparent; border:1px solid var(--shell-line); border-radius:99px; color:var(--shell-ink); font-size:12px; }
+.practice-actions button:hover { background:var(--shell-active); }
+.practice-header > .nav-links { display:none; }
+.practice-main { display:flex; flex:1 1 auto; min-height:0; }
+.practice-main iframe { display:block; width:100%; height:100%; border:0; background:var(--shell-bg); }
+.practice-dock { flex:none; display:flex; justify-content:center; gap:8px; padding:8px 20px max(8px,env(safe-area-inset-bottom)); border-top:1px solid var(--shell-line); background:var(--shell-bg); }
+.practice-dock a { display:flex; align-items:center; justify-content:center; gap:8px; min-height:44px; min-width:130px; padding:8px 16px; border-radius:12px; color:var(--shell-muted); font-size:12px; }
+.practice-dock a[aria-current] { background:var(--shell-active); color:var(--shell-ink); font-weight:600; }
+.practice-dock a:hover { color:var(--shell-ink); background:var(--shell-active); }
+.practice-shell :focus-visible { outline:2px solid currentColor; outline-offset:-4px; }
+.focus-mode .practice-header { height:0; padding:0; border:0; }
+.focus-mode .practice-header > :not(.practice-actions), .focus-mode .practice-actions > :not(.focus-toggle), .focus-mode .practice-dock { display:none; }
+.focus-mode .focus-toggle { position:fixed; z-index:50; top:max(12px,env(safe-area-inset-top)); right:max(12px,env(safe-area-inset-right)); background:var(--shell-bg); box-shadow:0 4px 24px #0002; }
+@media(min-width:1000px) {
+  .practice-dock { padding-block:6px; }
+  .practice-dock a { min-height:36px; }
+}
+@media(max-width:640px) {
+  .practice-header { height:64px; gap:8px; padding:8px max(12px,env(safe-area-inset-right)) 8px max(12px,env(safe-area-inset-left)); }
+  .brand-symbol { font-size:28px; }
+  .practice-brand { font-size:16px; gap:7px; }
+  .brand-caption { font-size:7px; letter-spacing:.08em; }
+  .practice-context { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+  .practice-actions { gap:6px; }
+  .practice-actions button { min-width:44px; padding:10px; }
+  .practice-actions button span { display:none; }
+  .practice-dock { gap:4px; padding:6px max(12px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)); }
+  .practice-dock a { flex:1; min-width:0; min-height:52px; padding:5px; flex-direction:column; gap:3px; font-size:10px; }
+  .focus-mode .focus-toggle span { display:inline; }
+}
