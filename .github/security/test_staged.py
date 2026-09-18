@@ -6,9 +6,10 @@ import server_security_staged as s
 
 async def main():
     transport=httpx.ASGITransport(app=s.app)
-    async with httpx.AsyncClient(transport=transport,base_url='http://test') as c:
+    async with httpx.AsyncClient(transport=transport,base_url='http://localhost') as c:
         async def post(path,payload,**kw):
             return await c.post(path,json=payload,**kw)
+        assert (await c.get('/api/health',headers={'Host':'temporary.trycloudflare.com'})).status_code==421
         r=await post('/api/chat',{'message':'Security test: creative work'})
         assert r.status_code==200, r.text
         sid=r.json()['session_id']

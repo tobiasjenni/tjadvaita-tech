@@ -31,6 +31,9 @@ class SecurityMiddleware:
             body = json.dumps({'detail': message}).encode()
             await send({'type':'http.response.start','status':status,'headers':[(b'content-type',b'application/json'),(b'cache-control',b'no-store'),(b'x-content-type-options',b'nosniff')]})
             await send({'type':'http.response.body','body':body})
+        host = headers.get(b'host', b'').decode('latin1').split(':', 1)[0].lower()
+        if host not in ('lila.tjadvaita.tech', '127.0.0.1', 'localhost'):
+            return await reject(421, 'Use the official Lila website')
         path = scope.get('path', '')
         if path not in ('/api/chat', '/api/reset'):
             return await self.app(scope, receive, send)
