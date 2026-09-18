@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self' blob: data:; connect-src 'self' https://cloudflareinsights.com; frame-src https://tobiasjenni.github.io/daily-mantra-meditation/ https://tobiasjenni.github.io/shiva-shakti-sutra-companion/ https://lila.tjadvaita.tech; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Lila — The Game of Life · TJ Advaita</title>
   <meta name="description" content="Explore Lila, the 72-cell game of self-inquiry, with Julia and Tobias at TJ Advaita.">
@@ -37,7 +39,7 @@
     </nav>
   </header>
   <main class="practice-main">
-    <iframe id="practice-app" title="Lila — The Game of Life" src="https://lila.tjadvaita.tech/lila/" allow="autoplay; screen-wake-lock; fullscreen" allowfullscreen></iframe>
+    <iframe sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-downloads" referrerpolicy="strict-origin-when-cross-origin" id="practice-app" title="Lila — The Game of Life" src="https://lila.tjadvaita.tech/lila/" allow="autoplay; screen-wake-lock; fullscreen" allowfullscreen></iframe>
   </main>
   <nav class="practice-dock" aria-label="Practice navigation">
     <a href="/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10H3Z"/><path d="M9 20v-7h6v7"/></svg><span>Home</span></a>

@@ -1,0 +1,17 @@
+# Credentials and local-only data
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+*.sqlite
+*.sqlite3
+*.db
+*.log
+visits_*.jsonl
+geo_*.json
+node_modules/
+__pycache__/
